@@ -399,8 +399,8 @@
         <div class="paginationShell clearfix" xml:lang="en-GB" lang="en-GB">
                     <div class="well well-lg pagination-well pagination">
                         <div class="pagination-label-row">
-                            <span class="paginationLabel" aria-label="Results 1 – 25">Results <b>1 – 25</b> of <b>177</b></span>
-                            <span class="srHelp" style="font-size:0px">Page 1 of 8</span>
+                            <span class="paginationLabel" aria-label="Results 1 – 25">Results <b>1 – 25</b> of <b>170</b></span>
+                            <span class="srHelp" style="font-size:0px">Page 1 of 7</span>
                         </div>
                             <ul class="pagination">
                                 <li><a class="paginationItemFirst" href="?q=&amp;sortColumn=referencedate&amp;sortDirection=desc" title="First Page">«</a></li>
@@ -411,8 +411,7 @@
                                             <li class=" "><a href="?q=&amp;sortColumn=referencedate&amp;sortDirection=desc&amp;startrow=100" rel="nofollow" title="Page 5">5</a></li>
                                             <li class="hidden-phone"><a href="?q=&amp;sortColumn=referencedate&amp;sortDirection=desc&amp;startrow=125" rel="nofollow" title="Page 6">6</a></li>
                                             <li class="hidden-phone"><a href="?q=&amp;sortColumn=referencedate&amp;sortDirection=desc&amp;startrow=150" rel="nofollow" title="Page 7">7</a></li>
-                                            <li class="hidden-phone"><a href="?q=&amp;sortColumn=referencedate&amp;sortDirection=desc&amp;startrow=175" rel="nofollow" title="Page 8">8</a></li>
-                                <li><a class="paginationItemLast" href="?q=&amp;sortColumn=referencedate&amp;sortDirection=desc&amp;startrow=175" rel="nofollow" title="Last Page">»</a></li>
+                                <li><a class="paginationItemLast" href="?q=&amp;sortColumn=referencedate&amp;sortDirection=desc&amp;startrow=150" rel="nofollow" title="Last Page">»</a></li>
                             </ul>
                     </div>
         </div>
@@ -423,31 +422,31 @@
 					<caption id="caption" role="alert" aria-live="polite" style="font-size:0px;">
 					Search results for
 						 "".
-						Page 1 of 8, Results 1 to 25
+						Page 1 of 7, Results 1 to 25
 					</caption>
 					<thead>
                             <tr id="search-results-header">
 											<th id="hdrTitle" aria-sort="none" scope="col" width="25%">
 												<span class="jobTitle">
-													<a class="jobTitle sort" href="/search/?q=&amp;sortColumn=sort_title&amp;sortDirection=desc#hdrTitle">Title
+													<a class="jobTitle sort" href="/search?q=&amp;sortColumn=sort_title&amp;sortDirection=desc#hdrTitle">Title
 													</a>
 												</span>
 											</th>
 											<th id="hdrLocation" aria-sort="none" scope="col" width="25%" class="hidden-phone">
 												<span class="jobLocation">
-													<a class="jobLocation sort" href="/search/?q=&amp;sortColumn=sort_location&amp;sortDirection=desc#hdrLocation">Location
+													<a class="jobLocation sort" href="/search?q=&amp;sortColumn=sort_location&amp;sortDirection=desc#hdrLocation">Location
 													</a>
 												</span>
 											</th>
 											<th id="hdrDepartment" aria-sort="none" scope="col" width="25%" class="hidden-phone">
 												<span class="jobDepartment">
-													<a href="/search/?q=&amp;sortColumn=sort_department&amp;sortDirection=desc#hdrDepartment">Department
+													<a href="/search?q=&amp;sortColumn=sort_department&amp;sortDirection=desc#hdrDepartment">Department
 													</a>
 												</span>
 											</th>
 											<th id="hdrFacility" aria-sort="none" scope="col" width="25%" class="hidden-phone">
 												<span class="jobFacility">
-													<a href="/search/?q=&amp;sortColumn=sort_facility&amp;sortDirection=desc#hdrFacility">Operation
+													<a href="/search?q=&amp;sortColumn=sort_facility&amp;sortDirection=desc#hdrFacility">Operation
 													</a>
 												</span>
 											</th>
@@ -468,14 +467,14 @@
 											</td>
 
                                 <td id="filter-submit">
-                                    <form id="searchfilter" method="get" action="/search/" name="searchfilter">
+                                    <form id="searchfilter" method="get" action="/search" name="searchfilter">
                                         <input type="submit" id="searchfilter-submit" value="Filter" class="btn btn-default" />
                                         <input id="q" type="hidden" name="q" />
                                         <input id="q2" type="hidden" name="q2" />
 										<input id="alertId" type="hidden" name="alertId" />
                                             <input id="locationsearch" type="hidden" name="locationsearch" />
 
-                                        <a id="reset" href="/search/?q=">Reset</a>
+                                        <a id="reset" href="/search?q=">Reset</a>
                                     </form>
 
                                     <script type="text/javascript">
@@ -513,16 +512,16 @@
                             <tr class="data-row clickable">
                                                 <td class="colTitle" headers="hdrTitle">
 													<span class="jobTitle hidden-phone">
-														<a href="/job/Wirral-Activities-Coordinator-Nort-CH61-8RA/606883601/" class="jobTitle-link">Activities Coordinator</a>
+														<a href="/job/Invergordon-Deputy-Manager-Scot-IV18-0JX/611608701/" class="jobTitle-link">Deputy Manager</a>
 													</span>
                                                     <div class="jobdetail-phone visible-phone">
                                                                     <span class="jobTitle visible-phone">
-                                                                        <a class="jobTitle-link" href="/job/Wirral-Activities-Coordinator-Nort-CH61-8RA/606883601/">Activities Coordinator</a>
+                                                                        <a class="jobTitle-link" href="/job/Invergordon-Deputy-Manager-Scot-IV18-0JX/611608701/">Deputy Manager</a>
                                                                     </span>
                                                                     <span class="jobLocation visible-phone">
         
         <span class="jobLocation">
-            Wirral, North West, GB, CH61 8RA
+            Invergordon, Scotland, GB, IV18 0JX
             
         </span></span>
                                                     </div>
@@ -530,7 +529,40 @@
 											<td class="colLocation hidden-phone" headers="hdrLocation">
         
         <span class="jobLocation">
-            Wirral, North West, GB, CH61 8RA
+            Invergordon, Scotland, GB, IV18 0JX
+            
+        </span>
+											</td>
+											<td class="colDepartment hidden-phone" headers="hdrDepartment">
+												<span class="jobDepartment">Care (Management)</span>
+											</td>
+											<td class="colFacility hidden-phone" headers="hdrFacility">
+												<span class="jobFacility">Sanctuary Care</span>
+											</td>
+									<td class="hidden-phone"></td>
+                            </tr>
+
+                            <tr class="data-row clickable">
+                                                <td class="colTitle" headers="hdrTitle">
+													<span class="jobTitle hidden-phone">
+														<a href="/job/Barbaraville-Night-Care-Assistant-Scot-IV18-0ND/611605301/" class="jobTitle-link">Night Care Assistant</a>
+													</span>
+                                                    <div class="jobdetail-phone visible-phone">
+                                                                    <span class="jobTitle visible-phone">
+                                                                        <a class="jobTitle-link" href="/job/Barbaraville-Night-Care-Assistant-Scot-IV18-0ND/611605301/">Night Care Assistant</a>
+                                                                    </span>
+                                                                    <span class="jobLocation visible-phone">
+        
+        <span class="jobLocation">
+            Barbaraville, Scotland, GB, IV18 0ND
+            
+        </span></span>
+                                                    </div>
+                                                </td>
+											<td class="colLocation hidden-phone" headers="hdrLocation">
+        
+        <span class="jobLocation">
+            Barbaraville, Scotland, GB, IV18 0ND
             
         </span>
 											</td>
@@ -546,16 +578,16 @@
                             <tr class="data-row clickable">
                                                 <td class="colTitle" headers="hdrTitle">
 													<span class="jobTitle hidden-phone">
-														<a href="/job/London-Bank-Assistant-Chef-Grea-HA3-5EG/611413301/" class="jobTitle-link">Bank Assistant Chef</a>
+														<a href="/job/Barbaraville-Care-Assistant-Scot-IV18-0ND/611606601/" class="jobTitle-link">Care Assistant</a>
 													</span>
                                                     <div class="jobdetail-phone visible-phone">
                                                                     <span class="jobTitle visible-phone">
-                                                                        <a class="jobTitle-link" href="/job/London-Bank-Assistant-Chef-Grea-HA3-5EG/611413301/">Bank Assistant Chef</a>
+                                                                        <a class="jobTitle-link" href="/job/Barbaraville-Care-Assistant-Scot-IV18-0ND/611606601/">Care Assistant</a>
                                                                     </span>
                                                                     <span class="jobLocation visible-phone">
         
         <span class="jobLocation">
-            London, Greater London, GB, HA3 5EG
+            Barbaraville, Scotland, GB, IV18 0ND
             
         </span></span>
                                                     </div>
@@ -563,12 +595,12 @@
 											<td class="colLocation hidden-phone" headers="hdrLocation">
         
         <span class="jobLocation">
-            London, Greater London, GB, HA3 5EG
+            Barbaraville, Scotland, GB, IV18 0ND
             
         </span>
 											</td>
 											<td class="colDepartment hidden-phone" headers="hdrDepartment">
-												<span class="jobDepartment">Care (Catering and Hospitality Staff)</span>
+												<span class="jobDepartment">Care (Qualified and Non-Qualified Care Staff)</span>
 											</td>
 											<td class="colFacility hidden-phone" headers="hdrFacility">
 												<span class="jobFacility">Sanctuary Care</span>
@@ -579,16 +611,16 @@
                             <tr class="data-row clickable">
                                                 <td class="colTitle" headers="hdrTitle">
 													<span class="jobTitle hidden-phone">
-														<a href="/job/Middlesbrough-Support-Assistant-Part-Time-Nort-TS3-7QG/611323301/" class="jobTitle-link">Mental Health Support Assistant - Part Time</a>
+														<a href="/job/Oxford-Registered-Nurse-Nights-Sout-OX4-4DN/611593701/" class="jobTitle-link">Registered Nurse Nights</a>
 													</span>
                                                     <div class="jobdetail-phone visible-phone">
                                                                     <span class="jobTitle visible-phone">
-                                                                        <a class="jobTitle-link" href="/job/Middlesbrough-Support-Assistant-Part-Time-Nort-TS3-7QG/611323301/">Mental Health Support Assistant - Part Time</a>
+                                                                        <a class="jobTitle-link" href="/job/Oxford-Registered-Nurse-Nights-Sout-OX4-4DN/611593701/">Registered Nurse Nights</a>
                                                                     </span>
                                                                     <span class="jobLocation visible-phone">
         
         <span class="jobLocation">
-            Middlesbrough, North East, GB, TS3 7QG
+            Oxford, South East, GB, OX4 4DN
             
         </span></span>
                                                     </div>
@@ -596,12 +628,45 @@
 											<td class="colLocation hidden-phone" headers="hdrLocation">
         
         <span class="jobLocation">
-            Middlesbrough, North East, GB, TS3 7QG
+            Oxford, South East, GB, OX4 4DN
             
         </span>
 											</td>
 											<td class="colDepartment hidden-phone" headers="hdrDepartment">
-												<span class="jobDepartment">Supported Living Services</span>
+												<span class="jobDepartment">Care (Nursing Staff)</span>
+											</td>
+											<td class="colFacility hidden-phone" headers="hdrFacility">
+												<span class="jobFacility">Sanctuary Care</span>
+											</td>
+									<td class="hidden-phone"></td>
+                            </tr>
+
+                            <tr class="data-row clickable">
+                                                <td class="colTitle" headers="hdrTitle">
+													<span class="jobTitle hidden-phone">
+														<a href="/job/Canterbury-Waking-Nights-Care-and-Support-Assistant-Part-Time-Sout-CT1-1RT/611627001/" class="jobTitle-link">Waking Nights Care and Support Assistant - Part Time</a>
+													</span>
+                                                    <div class="jobdetail-phone visible-phone">
+                                                                    <span class="jobTitle visible-phone">
+                                                                        <a class="jobTitle-link" href="/job/Canterbury-Waking-Nights-Care-and-Support-Assistant-Part-Time-Sout-CT1-1RT/611627001/">Waking Nights Care and Support Assistant - Part Time</a>
+                                                                    </span>
+                                                                    <span class="jobLocation visible-phone">
+        
+        <span class="jobLocation">
+            Canterbury, South East, GB, CT1 1RT
+            
+        </span></span>
+                                                    </div>
+                                                </td>
+											<td class="colLocation hidden-phone" headers="hdrLocation">
+        
+        <span class="jobLocation">
+            Canterbury, South East, GB, CT1 1RT
+            
+        </span>
+											</td>
+											<td class="colDepartment hidden-phone" headers="hdrDepartment">
+												<span class="jobDepartment">Care (Qualified and Non-Qualified Care Staff)</span>
 											</td>
 											<td class="colFacility hidden-phone" headers="hdrFacility">
 												<span class="jobFacility">Sanctuary Supported Living</span>
@@ -612,16 +677,16 @@
                             <tr class="data-row clickable">
                                                 <td class="colTitle" headers="hdrTitle">
 													<span class="jobTitle hidden-phone">
-														<a href="/job/Telford-Bank-Night-Care-Assistant-West-TF3-1LB/611336001/" class="jobTitle-link">Bank Night Care Assistant</a>
+														<a href="/job/Sawston-Housekeeping-Assistant-East-CB22-3HJ/611635901/" class="jobTitle-link">Housekeeping Assistant</a>
 													</span>
                                                     <div class="jobdetail-phone visible-phone">
                                                                     <span class="jobTitle visible-phone">
-                                                                        <a class="jobTitle-link" href="/job/Telford-Bank-Night-Care-Assistant-West-TF3-1LB/611336001/">Bank Night Care Assistant</a>
+                                                                        <a class="jobTitle-link" href="/job/Sawston-Housekeeping-Assistant-East-CB22-3HJ/611635901/">Housekeeping Assistant</a>
                                                                     </span>
                                                                     <span class="jobLocation visible-phone">
         
         <span class="jobLocation">
-            Telford, West Midlands, GB, TF3 1LB
+            Sawston, East Anglia, GB, CB22 3HJ
             
         </span></span>
                                                     </div>
@@ -629,12 +694,12 @@
 											<td class="colLocation hidden-phone" headers="hdrLocation">
         
         <span class="jobLocation">
-            Telford, West Midlands, GB, TF3 1LB
+            Sawston, East Anglia, GB, CB22 3HJ
             
         </span>
 											</td>
 											<td class="colDepartment hidden-phone" headers="hdrDepartment">
-												<span class="jobDepartment">Care (Qualified and Non-Qualified Care Staff)</span>
+												<span class="jobDepartment">Care (Domestic and Housekeeping Staff)</span>
 											</td>
 											<td class="colFacility hidden-phone" headers="hdrFacility">
 												<span class="jobFacility">Sanctuary Care</span>
@@ -645,16 +710,16 @@
                             <tr class="data-row clickable">
                                                 <td class="colTitle" headers="hdrTitle">
 													<span class="jobTitle hidden-phone">
-														<a href="/job/Ipswich-Bank-Care-Assistant-East-IP4-5JD/611354601/" class="jobTitle-link">Bank Care Assistant</a>
+														<a href="/job/South-Shields-Bank-Night-Concierge-Nort-NE33-2EY/611658901/" class="jobTitle-link">Bank Night Concierge</a>
 													</span>
                                                     <div class="jobdetail-phone visible-phone">
                                                                     <span class="jobTitle visible-phone">
-                                                                        <a class="jobTitle-link" href="/job/Ipswich-Bank-Care-Assistant-East-IP4-5JD/611354601/">Bank Care Assistant</a>
+                                                                        <a class="jobTitle-link" href="/job/South-Shields-Bank-Night-Concierge-Nort-NE33-2EY/611658901/">Bank Night Concierge</a>
                                                                     </span>
                                                                     <span class="jobLocation visible-phone">
         
         <span class="jobLocation">
-            Ipswich, East Anglia, GB, IP4 5JD
+            South Shields, North East, GB, NE33 2EY
             
         </span></span>
                                                     </div>
@@ -662,7 +727,40 @@
 											<td class="colLocation hidden-phone" headers="hdrLocation">
         
         <span class="jobLocation">
-            Ipswich, East Anglia, GB, IP4 5JD
+            South Shields, North East, GB, NE33 2EY
+            
+        </span>
+											</td>
+											<td class="colDepartment hidden-phone" headers="hdrDepartment">
+												<span class="jobDepartment">Administrative Services</span>
+											</td>
+											<td class="colFacility hidden-phone" headers="hdrFacility">
+												<span class="jobFacility">Sanctuary Supported Living</span>
+											</td>
+									<td class="hidden-phone"></td>
+                            </tr>
+
+                            <tr class="data-row clickable">
+                                                <td class="colTitle" headers="hdrTitle">
+													<span class="jobTitle hidden-phone">
+														<a href="/job/Winslow-Care-and-Support-Assistant-Part-Time-Sout-MK18-3HA/611662401/" class="jobTitle-link">Care and Support Assistant - Part Time</a>
+													</span>
+                                                    <div class="jobdetail-phone visible-phone">
+                                                                    <span class="jobTitle visible-phone">
+                                                                        <a class="jobTitle-link" href="/job/Winslow-Care-and-Support-Assistant-Part-Time-Sout-MK18-3HA/611662401/">Care and Support Assistant - Part Time</a>
+                                                                    </span>
+                                                                    <span class="jobLocation visible-phone">
+        
+        <span class="jobLocation">
+            Winslow, South East, GB, MK18 3HA
+            
+        </span></span>
+                                                    </div>
+                                                </td>
+											<td class="colLocation hidden-phone" headers="hdrLocation">
+        
+        <span class="jobLocation">
+            Winslow, South East, GB, MK18 3HA
             
         </span>
 											</td>
@@ -670,7 +768,73 @@
 												<span class="jobDepartment">Care (Qualified and Non-Qualified Care Staff)</span>
 											</td>
 											<td class="colFacility hidden-phone" headers="hdrFacility">
+												<span class="jobFacility">Sanctuary Supported Living</span>
+											</td>
+									<td class="hidden-phone"></td>
+                            </tr>
+
+                            <tr class="data-row clickable">
+                                                <td class="colTitle" headers="hdrTitle">
+													<span class="jobTitle hidden-phone">
+														<a href="/job/Chelmsford-Bank-Housekeeping-Assistant-East-CM1-6LB/611695401/" class="jobTitle-link">Bank Housekeeping Assistant</a>
+													</span>
+                                                    <div class="jobdetail-phone visible-phone">
+                                                                    <span class="jobTitle visible-phone">
+                                                                        <a class="jobTitle-link" href="/job/Chelmsford-Bank-Housekeeping-Assistant-East-CM1-6LB/611695401/">Bank Housekeeping Assistant</a>
+                                                                    </span>
+                                                                    <span class="jobLocation visible-phone">
+        
+        <span class="jobLocation">
+            Chelmsford, East Anglia, GB, CM1 6LB
+            
+        </span></span>
+                                                    </div>
+                                                </td>
+											<td class="colLocation hidden-phone" headers="hdrLocation">
+        
+        <span class="jobLocation">
+            Chelmsford, East Anglia, GB, CM1 6LB
+            
+        </span>
+											</td>
+											<td class="colDepartment hidden-phone" headers="hdrDepartment">
+												<span class="jobDepartment">Care (Domestic and Housekeeping Staff)</span>
+											</td>
+											<td class="colFacility hidden-phone" headers="hdrFacility">
 												<span class="jobFacility">Sanctuary Care</span>
+											</td>
+									<td class="hidden-phone"></td>
+                            </tr>
+
+                            <tr class="data-row clickable">
+                                                <td class="colTitle" headers="hdrTitle">
+													<span class="jobTitle hidden-phone">
+														<a href="/job/Stoke-on-Trent-Night-Care-and-Support-Assistant-Part-Time-West-ST3-4JR/603421801/" class="jobTitle-link">Night Care and Support Assistant - Part Time</a>
+													</span>
+                                                    <div class="jobdetail-phone visible-phone">
+                                                                    <span class="jobTitle visible-phone">
+                                                                        <a class="jobTitle-link" href="/job/Stoke-on-Trent-Night-Care-and-Support-Assistant-Part-Time-West-ST3-4JR/603421801/">Night Care and Support Assistant - Part Time</a>
+                                                                    </span>
+                                                                    <span class="jobLocation visible-phone">
+        
+        <span class="jobLocation">
+            Stoke-on-Trent, West Midlands, GB, ST3 4JR
+            
+        </span></span>
+                                                    </div>
+                                                </td>
+											<td class="colLocation hidden-phone" headers="hdrLocation">
+        
+        <span class="jobLocation">
+            Stoke-on-Trent, West Midlands, GB, ST3 4JR
+            
+        </span>
+											</td>
+											<td class="colDepartment hidden-phone" headers="hdrDepartment">
+												<span class="jobDepartment">Care (Qualified and Non-Qualified Care Staff)</span>
+											</td>
+											<td class="colFacility hidden-phone" headers="hdrFacility">
+												<span class="jobFacility">Sanctuary Supported Living</span>
 											</td>
 									<td class="hidden-phone"></td>
                             </tr>
@@ -777,6 +941,39 @@
                             <tr class="data-row clickable">
                                                 <td class="colTitle" headers="hdrTitle">
 													<span class="jobTitle hidden-phone">
+														<a href="/job/London-Bank-Assistant-Chef-Grea-HA3-5EG/611413301/" class="jobTitle-link">Bank Assistant Chef</a>
+													</span>
+                                                    <div class="jobdetail-phone visible-phone">
+                                                                    <span class="jobTitle visible-phone">
+                                                                        <a class="jobTitle-link" href="/job/London-Bank-Assistant-Chef-Grea-HA3-5EG/611413301/">Bank Assistant Chef</a>
+                                                                    </span>
+                                                                    <span class="jobLocation visible-phone">
+        
+        <span class="jobLocation">
+            London, Greater London, GB, HA3 5EG
+            
+        </span></span>
+                                                    </div>
+                                                </td>
+											<td class="colLocation hidden-phone" headers="hdrLocation">
+        
+        <span class="jobLocation">
+            London, Greater London, GB, HA3 5EG
+            
+        </span>
+											</td>
+											<td class="colDepartment hidden-phone" headers="hdrDepartment">
+												<span class="jobDepartment">Care (Catering and Hospitality Staff)</span>
+											</td>
+											<td class="colFacility hidden-phone" headers="hdrFacility">
+												<span class="jobFacility">Sanctuary Care</span>
+											</td>
+									<td class="hidden-phone"></td>
+                            </tr>
+
+                            <tr class="data-row clickable">
+                                                <td class="colTitle" headers="hdrTitle">
+													<span class="jobTitle hidden-phone">
 														<a href="/job/Ely-Trade-Supervisor-East-CB6-3NW/611391001/" class="jobTitle-link">Trade Supervisor</a>
 													</span>
                                                     <div class="jobdetail-phone visible-phone">
@@ -803,6 +1000,105 @@
 											</td>
 											<td class="colFacility hidden-phone" headers="hdrFacility">
 												<span class="jobFacility">Sanctuary Maintenance</span>
+											</td>
+									<td class="hidden-phone"></td>
+                            </tr>
+
+                            <tr class="data-row clickable">
+                                                <td class="colTitle" headers="hdrTitle">
+													<span class="jobTitle hidden-phone">
+														<a href="/job/Middlesbrough-Support-Assistant-Part-Time-Nort-TS3-7QG/611323301/" class="jobTitle-link">Mental Health Support Assistant - Part Time</a>
+													</span>
+                                                    <div class="jobdetail-phone visible-phone">
+                                                                    <span class="jobTitle visible-phone">
+                                                                        <a class="jobTitle-link" href="/job/Middlesbrough-Support-Assistant-Part-Time-Nort-TS3-7QG/611323301/">Mental Health Support Assistant - Part Time</a>
+                                                                    </span>
+                                                                    <span class="jobLocation visible-phone">
+        
+        <span class="jobLocation">
+            Middlesbrough, North East, GB, TS3 7QG
+            
+        </span></span>
+                                                    </div>
+                                                </td>
+											<td class="colLocation hidden-phone" headers="hdrLocation">
+        
+        <span class="jobLocation">
+            Middlesbrough, North East, GB, TS3 7QG
+            
+        </span>
+											</td>
+											<td class="colDepartment hidden-phone" headers="hdrDepartment">
+												<span class="jobDepartment">Supported Living Services</span>
+											</td>
+											<td class="colFacility hidden-phone" headers="hdrFacility">
+												<span class="jobFacility">Sanctuary Supported Living</span>
+											</td>
+									<td class="hidden-phone"></td>
+                            </tr>
+
+                            <tr class="data-row clickable">
+                                                <td class="colTitle" headers="hdrTitle">
+													<span class="jobTitle hidden-phone">
+														<a href="/job/Telford-Bank-Night-Care-Assistant-West-TF3-1LB/611336001/" class="jobTitle-link">Bank Night Care Assistant</a>
+													</span>
+                                                    <div class="jobdetail-phone visible-phone">
+                                                                    <span class="jobTitle visible-phone">
+                                                                        <a class="jobTitle-link" href="/job/Telford-Bank-Night-Care-Assistant-West-TF3-1LB/611336001/">Bank Night Care Assistant</a>
+                                                                    </span>
+                                                                    <span class="jobLocation visible-phone">
+        
+        <span class="jobLocation">
+            Telford, West Midlands, GB, TF3 1LB
+            
+        </span></span>
+                                                    </div>
+                                                </td>
+											<td class="colLocation hidden-phone" headers="hdrLocation">
+        
+        <span class="jobLocation">
+            Telford, West Midlands, GB, TF3 1LB
+            
+        </span>
+											</td>
+											<td class="colDepartment hidden-phone" headers="hdrDepartment">
+												<span class="jobDepartment">Care (Qualified and Non-Qualified Care Staff)</span>
+											</td>
+											<td class="colFacility hidden-phone" headers="hdrFacility">
+												<span class="jobFacility">Sanctuary Care</span>
+											</td>
+									<td class="hidden-phone"></td>
+                            </tr>
+
+                            <tr class="data-row clickable">
+                                                <td class="colTitle" headers="hdrTitle">
+													<span class="jobTitle hidden-phone">
+														<a href="/job/Ipswich-Bank-Care-Assistant-East-IP4-5JD/611354601/" class="jobTitle-link">Bank Care Assistant</a>
+													</span>
+                                                    <div class="jobdetail-phone visible-phone">
+                                                                    <span class="jobTitle visible-phone">
+                                                                        <a class="jobTitle-link" href="/job/Ipswich-Bank-Care-Assistant-East-IP4-5JD/611354601/">Bank Care Assistant</a>
+                                                                    </span>
+                                                                    <span class="jobLocation visible-phone">
+        
+        <span class="jobLocation">
+            Ipswich, East Anglia, GB, IP4 5JD
+            
+        </span></span>
+                                                    </div>
+                                                </td>
+											<td class="colLocation hidden-phone" headers="hdrLocation">
+        
+        <span class="jobLocation">
+            Ipswich, East Anglia, GB, IP4 5JD
+            
+        </span>
+											</td>
+											<td class="colDepartment hidden-phone" headers="hdrDepartment">
+												<span class="jobDepartment">Care (Qualified and Non-Qualified Care Staff)</span>
+											</td>
+											<td class="colFacility hidden-phone" headers="hdrFacility">
+												<span class="jobFacility">Sanctuary Care</span>
 											</td>
 									<td class="hidden-phone"></td>
                             </tr>
@@ -876,39 +1172,6 @@
                             <tr class="data-row clickable">
                                                 <td class="colTitle" headers="hdrTitle">
 													<span class="jobTitle hidden-phone">
-														<a href="/job/Chelmsford-Bank-Care-Team-Leader-East-CM1-6LB/604750401/" class="jobTitle-link">Bank Care Team Leader</a>
-													</span>
-                                                    <div class="jobdetail-phone visible-phone">
-                                                                    <span class="jobTitle visible-phone">
-                                                                        <a class="jobTitle-link" href="/job/Chelmsford-Bank-Care-Team-Leader-East-CM1-6LB/604750401/">Bank Care Team Leader</a>
-                                                                    </span>
-                                                                    <span class="jobLocation visible-phone">
-        
-        <span class="jobLocation">
-            Chelmsford, East Anglia, GB, CM1 6LB
-            
-        </span></span>
-                                                    </div>
-                                                </td>
-											<td class="colLocation hidden-phone" headers="hdrLocation">
-        
-        <span class="jobLocation">
-            Chelmsford, East Anglia, GB, CM1 6LB
-            
-        </span>
-											</td>
-											<td class="colDepartment hidden-phone" headers="hdrDepartment">
-												<span class="jobDepartment">Care (Qualified and Non-Qualified Care Staff)</span>
-											</td>
-											<td class="colFacility hidden-phone" headers="hdrFacility">
-												<span class="jobFacility">Sanctuary Care</span>
-											</td>
-									<td class="hidden-phone"></td>
-                            </tr>
-
-                            <tr class="data-row clickable">
-                                                <td class="colTitle" headers="hdrTitle">
-													<span class="jobTitle hidden-phone">
 														<a href="/job/Seaham-Registered-Nurse-Nort-SR7-8BT/603044801/" class="jobTitle-link">Registered Nurse</a>
 													</span>
                                                     <div class="jobdetail-phone visible-phone">
@@ -932,39 +1195,6 @@
 											</td>
 											<td class="colDepartment hidden-phone" headers="hdrDepartment">
 												<span class="jobDepartment">Care (Nursing Staff)</span>
-											</td>
-											<td class="colFacility hidden-phone" headers="hdrFacility">
-												<span class="jobFacility">Sanctuary Care</span>
-											</td>
-									<td class="hidden-phone"></td>
-                            </tr>
-
-                            <tr class="data-row clickable">
-                                                <td class="colTitle" headers="hdrTitle">
-													<span class="jobTitle hidden-phone">
-														<a href="/job/Liverpool-Night-Care-Assistant-Nort-L20-7AJ/606770001/" class="jobTitle-link">Night Care Assistant</a>
-													</span>
-                                                    <div class="jobdetail-phone visible-phone">
-                                                                    <span class="jobTitle visible-phone">
-                                                                        <a class="jobTitle-link" href="/job/Liverpool-Night-Care-Assistant-Nort-L20-7AJ/606770001/">Night Care Assistant</a>
-                                                                    </span>
-                                                                    <span class="jobLocation visible-phone">
-        
-        <span class="jobLocation">
-            Liverpool, North West, GB, L20 7AJ
-            
-        </span></span>
-                                                    </div>
-                                                </td>
-											<td class="colLocation hidden-phone" headers="hdrLocation">
-        
-        <span class="jobLocation">
-            Liverpool, North West, GB, L20 7AJ
-            
-        </span>
-											</td>
-											<td class="colDepartment hidden-phone" headers="hdrDepartment">
-												<span class="jobDepartment">Care (Qualified and Non-Qualified Care Staff)</span>
 											</td>
 											<td class="colFacility hidden-phone" headers="hdrFacility">
 												<span class="jobFacility">Sanctuary Care</span>
@@ -1103,237 +1333,6 @@
 											</td>
 									<td class="hidden-phone"></td>
                             </tr>
-
-                            <tr class="data-row clickable">
-                                                <td class="colTitle" headers="hdrTitle">
-													<span class="jobTitle hidden-phone">
-														<a href="/job/Canterbury-Night-Care-Assistant-Sout-CT3-4GB/611122201/" class="jobTitle-link">Night Care Assistant</a>
-													</span>
-                                                    <div class="jobdetail-phone visible-phone">
-                                                                    <span class="jobTitle visible-phone">
-                                                                        <a class="jobTitle-link" href="/job/Canterbury-Night-Care-Assistant-Sout-CT3-4GB/611122201/">Night Care Assistant</a>
-                                                                    </span>
-                                                                    <span class="jobLocation visible-phone">
-        
-        <span class="jobLocation">
-            Canterbury, South East, GB, CT3 4GB
-            
-        </span></span>
-                                                    </div>
-                                                </td>
-											<td class="colLocation hidden-phone" headers="hdrLocation">
-        
-        <span class="jobLocation">
-            Canterbury, South East, GB, CT3 4GB
-            
-        </span>
-											</td>
-											<td class="colDepartment hidden-phone" headers="hdrDepartment">
-												<span class="jobDepartment">Care (Qualified and Non-Qualified Care Staff)</span>
-											</td>
-											<td class="colFacility hidden-phone" headers="hdrFacility">
-												<span class="jobFacility">Sanctuary Care</span>
-											</td>
-									<td class="hidden-phone"></td>
-                            </tr>
-
-                            <tr class="data-row clickable">
-                                                <td class="colTitle" headers="hdrTitle">
-													<span class="jobTitle hidden-phone">
-														<a href="/job/Glasgow-Bank-Registered-Nurse-Scot-G74-3JY/611150401/" class="jobTitle-link">Bank Registered Nurse</a>
-													</span>
-                                                    <div class="jobdetail-phone visible-phone">
-                                                                    <span class="jobTitle visible-phone">
-                                                                        <a class="jobTitle-link" href="/job/Glasgow-Bank-Registered-Nurse-Scot-G74-3JY/611150401/">Bank Registered Nurse</a>
-                                                                    </span>
-                                                                    <span class="jobLocation visible-phone">
-        
-        <span class="jobLocation">
-            Glasgow, Scotland, GB, G74 3JY
-            
-        </span></span>
-                                                    </div>
-                                                </td>
-											<td class="colLocation hidden-phone" headers="hdrLocation">
-        
-        <span class="jobLocation">
-            Glasgow, Scotland, GB, G74 3JY
-            
-        </span>
-											</td>
-											<td class="colDepartment hidden-phone" headers="hdrDepartment">
-												<span class="jobDepartment">Care (Nursing Staff)</span>
-											</td>
-											<td class="colFacility hidden-phone" headers="hdrFacility">
-												<span class="jobFacility">Sanctuary Care</span>
-											</td>
-									<td class="hidden-phone"></td>
-                            </tr>
-
-                            <tr class="data-row clickable">
-                                                <td class="colTitle" headers="hdrTitle">
-													<span class="jobTitle hidden-phone">
-														<a href="/job/March-General-Assistant-Catering-Part-Time-East-PE15-0WD/611161601/" class="jobTitle-link">General Assistant - Catering - Part Time</a>
-													</span>
-                                                    <div class="jobdetail-phone visible-phone">
-                                                                    <span class="jobTitle visible-phone">
-                                                                        <a class="jobTitle-link" href="/job/March-General-Assistant-Catering-Part-Time-East-PE15-0WD/611161601/">General Assistant - Catering - Part Time</a>
-                                                                    </span>
-                                                                    <span class="jobLocation visible-phone">
-        
-        <span class="jobLocation">
-            March, East Anglia, GB, PE15 0WD
-            
-        </span></span>
-                                                    </div>
-                                                </td>
-											<td class="colLocation hidden-phone" headers="hdrLocation">
-        
-        <span class="jobLocation">
-            March, East Anglia, GB, PE15 0WD
-            
-        </span>
-											</td>
-											<td class="colDepartment hidden-phone" headers="hdrDepartment">
-												<span class="jobDepartment">Care (Catering and Hospitality Staff)</span>
-											</td>
-											<td class="colFacility hidden-phone" headers="hdrFacility">
-												<span class="jobFacility">Sanctuary Retirement Living</span>
-											</td>
-									<td class="hidden-phone"></td>
-                            </tr>
-
-                            <tr class="data-row clickable">
-                                                <td class="colTitle" headers="hdrTitle">
-													<span class="jobTitle hidden-phone">
-														<a href="/job/Plymouth-Night-Care-Team-Leader-Sout-PL21-0UJ/611217301/" class="jobTitle-link">Night Care Team Leader</a>
-													</span>
-                                                    <div class="jobdetail-phone visible-phone">
-                                                                    <span class="jobTitle visible-phone">
-                                                                        <a class="jobTitle-link" href="/job/Plymouth-Night-Care-Team-Leader-Sout-PL21-0UJ/611217301/">Night Care Team Leader</a>
-                                                                    </span>
-                                                                    <span class="jobLocation visible-phone">
-        
-        <span class="jobLocation">
-            Plymouth, South West, GB, PL21 0UJ
-            
-        </span></span>
-                                                    </div>
-                                                </td>
-											<td class="colLocation hidden-phone" headers="hdrLocation">
-        
-        <span class="jobLocation">
-            Plymouth, South West, GB, PL21 0UJ
-            
-        </span>
-											</td>
-											<td class="colDepartment hidden-phone" headers="hdrDepartment">
-												<span class="jobDepartment">Care (Qualified and Non-Qualified Care Staff)</span>
-											</td>
-											<td class="colFacility hidden-phone" headers="hdrFacility">
-												<span class="jobFacility">Sanctuary Care</span>
-											</td>
-									<td class="hidden-phone"></td>
-                            </tr>
-
-                            <tr class="data-row clickable">
-                                                <td class="colTitle" headers="hdrTitle">
-													<span class="jobTitle hidden-phone">
-														<a href="/job/Fleetwood-Night-Care-Team-Leader-Nort-FY7-7JY/611223301/" class="jobTitle-link">Night Care Team Leader</a>
-													</span>
-                                                    <div class="jobdetail-phone visible-phone">
-                                                                    <span class="jobTitle visible-phone">
-                                                                        <a class="jobTitle-link" href="/job/Fleetwood-Night-Care-Team-Leader-Nort-FY7-7JY/611223301/">Night Care Team Leader</a>
-                                                                    </span>
-                                                                    <span class="jobLocation visible-phone">
-        
-        <span class="jobLocation">
-            Fleetwood, North West, GB, FY7 7JY
-            
-        </span></span>
-                                                    </div>
-                                                </td>
-											<td class="colLocation hidden-phone" headers="hdrLocation">
-        
-        <span class="jobLocation">
-            Fleetwood, North West, GB, FY7 7JY
-            
-        </span>
-											</td>
-											<td class="colDepartment hidden-phone" headers="hdrDepartment">
-												<span class="jobDepartment">Care (Qualified and Non-Qualified Care Staff)</span>
-											</td>
-											<td class="colFacility hidden-phone" headers="hdrFacility">
-												<span class="jobFacility">Sanctuary Care</span>
-											</td>
-									<td class="hidden-phone"></td>
-                            </tr>
-
-                            <tr class="data-row clickable">
-                                                <td class="colTitle" headers="hdrTitle">
-													<span class="jobTitle hidden-phone">
-														<a href="/job/Fleetwood-Care-Team-Leader-Nort-FY7-7JY/611223801/" class="jobTitle-link">Care Team Leader</a>
-													</span>
-                                                    <div class="jobdetail-phone visible-phone">
-                                                                    <span class="jobTitle visible-phone">
-                                                                        <a class="jobTitle-link" href="/job/Fleetwood-Care-Team-Leader-Nort-FY7-7JY/611223801/">Care Team Leader</a>
-                                                                    </span>
-                                                                    <span class="jobLocation visible-phone">
-        
-        <span class="jobLocation">
-            Fleetwood, North West, GB, FY7 7JY
-            
-        </span></span>
-                                                    </div>
-                                                </td>
-											<td class="colLocation hidden-phone" headers="hdrLocation">
-        
-        <span class="jobLocation">
-            Fleetwood, North West, GB, FY7 7JY
-            
-        </span>
-											</td>
-											<td class="colDepartment hidden-phone" headers="hdrDepartment">
-												<span class="jobDepartment">Care (Qualified and Non-Qualified Care Staff)</span>
-											</td>
-											<td class="colFacility hidden-phone" headers="hdrFacility">
-												<span class="jobFacility">Sanctuary Care</span>
-											</td>
-									<td class="hidden-phone"></td>
-                            </tr>
-
-                            <tr class="data-row clickable">
-                                                <td class="colTitle" headers="hdrTitle">
-													<span class="jobTitle hidden-phone">
-														<a href="/job/Worcester-Administration-Officer-West-WR2-5FH/611233201/" class="jobTitle-link">Administration Officer</a>
-													</span>
-                                                    <div class="jobdetail-phone visible-phone">
-                                                                    <span class="jobTitle visible-phone">
-                                                                        <a class="jobTitle-link" href="/job/Worcester-Administration-Officer-West-WR2-5FH/611233201/">Administration Officer</a>
-                                                                    </span>
-                                                                    <span class="jobLocation visible-phone">
-        
-        <span class="jobLocation">
-            Worcester, West Midlands, GB, WR2 5FH
-            
-        </span></span>
-                                                    </div>
-                                                </td>
-											<td class="colLocation hidden-phone" headers="hdrLocation">
-        
-        <span class="jobLocation">
-            Worcester, West Midlands, GB, WR2 5FH
-            
-        </span>
-											</td>
-											<td class="colDepartment hidden-phone" headers="hdrDepartment">
-												<span class="jobDepartment">Administrative Services</span>
-											</td>
-											<td class="colFacility hidden-phone" headers="hdrFacility">
-												<span class="jobFacility">Sanctuary Retirement Living</span>
-											</td>
-									<td class="hidden-phone"></td>
-                            </tr>
                     </tbody>
 
                 </table>
@@ -1343,8 +1342,8 @@
         <div class="paginationShell clearfix" xml:lang="en-GB" lang="en-GB">
                     <div class="well well-lg pagination-well pagination">
                         <div class="pagination-label-row">
-                            <span class="paginationLabel" aria-label="Results 1 – 25">Results <b>1 – 25</b> of <b>177</b></span>
-                            <span class="srHelp" style="font-size:0px">Page 1 of 8</span>
+                            <span class="paginationLabel" aria-label="Results 1 – 25">Results <b>1 – 25</b> of <b>170</b></span>
+                            <span class="srHelp" style="font-size:0px">Page 1 of 7</span>
                         </div>
                             <ul class="pagination">
                                 <li><a class="paginationItemFirst" href="?q=&amp;sortColumn=referencedate&amp;sortDirection=desc" title="First Page">«</a></li>
@@ -1355,8 +1354,7 @@
                                             <li class=" "><a href="?q=&amp;sortColumn=referencedate&amp;sortDirection=desc&amp;startrow=100" rel="nofollow" title="Page 5">5</a></li>
                                             <li class="hidden-phone"><a href="?q=&amp;sortColumn=referencedate&amp;sortDirection=desc&amp;startrow=125" rel="nofollow" title="Page 6">6</a></li>
                                             <li class="hidden-phone"><a href="?q=&amp;sortColumn=referencedate&amp;sortDirection=desc&amp;startrow=150" rel="nofollow" title="Page 7">7</a></li>
-                                            <li class="hidden-phone"><a href="?q=&amp;sortColumn=referencedate&amp;sortDirection=desc&amp;startrow=175" rel="nofollow" title="Page 8">8</a></li>
-                                <li><a class="paginationItemLast" href="?q=&amp;sortColumn=referencedate&amp;sortDirection=desc&amp;startrow=175" rel="nofollow" title="Last Page">»</a></li>
+                                <li><a class="paginationItemLast" href="?q=&amp;sortColumn=referencedate&amp;sortDirection=desc&amp;startrow=150" rel="nofollow" title="Last Page">»</a></li>
                             </ul>
                     </div>
         </div>
@@ -1436,7 +1434,7 @@ $('#distance').watermark('');
 		//<![CDATA[
 			$(function() 
 			{
-				var ctid = 'b6c66b60-d451-4183-9674-5de3a938e856';
+				var ctid = '4deb867e-818c-4b73-a9b3-aa1c998a4d3c';
 				var referrer = '';
 				var landing = document.location.href;
 				var brand = '';
@@ -1503,7 +1501,7 @@ $('#distance').watermark('');
 				$.ajaxSetup({
 					cache   : false,
 					headers : {
-						"X-CSRF-Token" : "cee15523-09d8-4f21-a593-62e10f57564e"
+						"X-CSRF-Token" : "18aeb576-0b54-4c91-9e15-36f3dd0bd472"
 					}
 				});
 			//]]>
@@ -1514,7 +1512,7 @@ $('#distance').watermark('');
         <script type="text/javascript" src="/platform/js/jquery/jquery.cookies.2.2.0.min.js"></script>
         <script type="text/javascript" src="/platform/js/jquery/jquery.lightbox_me.js"></script>
         <script type="text/javascript" src="/platform/js/jquery/jquery.placeholder.2.0.7.min.js"></script>
-        <script type="text/javascript" src="/js/override.js?locale=en_GB&amp;i=1972137747"></script>
+        <script type="text/javascript" src="/js/override.js?locale=en_GB&amp;i=1886887950"></script>
             <script type="text/javascript">
             //<![CDATA[
                 if ($.cookies && !$.cookies.get('rmk12')) {

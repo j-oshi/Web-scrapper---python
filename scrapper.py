@@ -1,16 +1,11 @@
 import urllib.request
-from lxml import etree
-from io import StringIO
-from collections import ChainMap
-import ast
-import itertools
+from lxml import etree, html
 
 class Scrapper:
     def __init__(self, baseUrl):
         self.baseUrl = baseUrl
         self.pageContent = ''
         self.paginationQueryList = []
-        self.siteData = dict()
 
     # Check header status response
     # def validate_url(self):
@@ -38,15 +33,12 @@ class Scrapper:
             url = self.baseUrl + urlPath
 
             respData = self.page_html_content(url)
-            self.pageContent = respData
+
+            # Get pagination link list
             paginationNodes = self.pagination_list(respData, queryExpression)
 
-            # Get the url from the ref
-            queryList = []
-            for el in paginationNodes:
-                queryList.append(el.get('href', ''))
             # Save unique list
-            self.paginationQueryList = self.ordered_set(queryList)
+            self.paginationQueryList = self.ordered_set(paginationNodes)
         except Exception as e:
             print(str(e))
 
@@ -57,29 +49,24 @@ class Scrapper:
             if len(queryList) > 0:
                 url = self.baseUrl
 
-                chain_map = ChainMap()
                 open(saveToFile, 'w').close()
 
                 for queryString in queryList:
                     queryUrl = url + urlPath + queryString
+
                     respData = self.page_html_content(queryUrl)
-                    siteNodes = self.parse_html(respData, queryExpression)
-                     
-                    for el in siteNodes:
-                        test = el.xpath('//span[@class="jobTitle hidden-phone"]/a')
-                        counter = 0
-                        example = {}                   
-                        for e in test:
-                            example.setdefault(counter, {})['title']=e.text
-                            example.setdefault(counter, {})['href']=e.get('href', '')
-                            counter = counter + 1 
-                        data = example
-                        new_chain_map = chain_map.new_child(data)
+                    root = self.parse_html(respData, queryExpression)
+
+                    data = []
+                    for row in root:
+                        test = row.xpath('./td/span/a/text() | ./td/span/a/@href | ./td[@headers="hdrDepartment"]/span/text() | ./td/div/span/a/text() | ./td/div/span/span/text()')
+                        data.append(test)
+                    print(data)
 
                     saveFile = open(saveToFile, "a+")
 
                     # for element in new_chain_map:
-                    saveFile.write(str(new_chain_map.maps))
+                    saveFile.write(str(data))
                     saveFile.write('\n')
                     saveFile.close()     
 
@@ -89,11 +76,6 @@ class Scrapper:
                     # print(e.xpath('//span/a'))
                     # etree.dump(e)
 
-                # for element in urlList:
-                #     saveFile.write(element)
-                #     saveFile.write('\n')
-                # saveFile.close()
-
         except Exception as e:
             print(str(e))
 
@@ -101,25 +83,20 @@ class Scrapper:
     def cleanList(self, filename):
         f = open(filename, "r")
         file = f.read() 
-        li = list(file.replace('}',' {').split("{"))
-        result = []
-        for s in li:
-            if 'title' in s:
-                result.append(s)
-        
+        result = file.replace('[[','[').replace(']]','],')
+        # print(lis)
         saveFile = open('scrap.txt', "w")
         # for element in new_chain_map:
         saveFile.write(str(result))
         saveFile.write('\n')
-        saveFile.close()    
+        saveFile.close()  
 
     def pagination_list(self, htmlcontent, queryExpression):
         nodes = self.parse_html(htmlcontent, queryExpression)
         return nodes
 
     def parse_html(self, htmlcontent, queryExpression):
-        parser = etree.HTMLParser()
-        tree = etree.parse(StringIO(str(htmlcontent)), parser=parser)
+        tree = html.fromstring(htmlcontent)
         nodes = tree.xpath(queryExpression)
         return nodes
 
@@ -150,8 +127,9 @@ class Scrapper:
 
 
 scanSite = Scrapper("https://jobs.sanctuary-group.co.uk")
-scanSite.init_page_scan('test4.txt', '//ul[@class="pagination"]/li/a', '/search')
-scanSite.get_web_content('temp.txt', '//table[@id="searchresults"]/tbody/tr/td', '/search/')
+# scanSite.cleanList('temp.txt')
+scanSite.init_page_scan('test4.txt', '//ul[@class="pagination"]/li/a/@href', '/search')
+scanSite.get_web_content('temp.txt', '//table[@id="searchresults"]/tbody/tr', '/search/')
 
 
 # print(scanSite.get_pagination_list())

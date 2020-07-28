@@ -7,31 +7,10 @@ class Scrapper:
         self.pageContent = ''
         self.paginationQueryList = []
 
-    # Check header status response
-    # def validate_url(self):
-        # request = urllib.request.urlopen('https://www.asda.com')
-        # # print(request.getheaders())
-        # print(request.getheader('Content-Disposition'))
-        # if request.status_code == 200:
-        #     print('Web site exists')
-        # else:
-        #     print('Web site does not exist')
-        # conn = http.client.HTTPSConnection(self.url)
-        # conn.request("HEAD", "")
-        # value = True
-        # if conn.getresponse().status == 200:
-        #     return value
-    def page_html_content(self, url):
-        headers = {}
-        headers['User-Agent'] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101 Firefox/78.0"
-        req = urllib.request.Request(url, headers=headers)
-        resp = urllib.request.urlopen(req)
-        return resp.read()
-
-    def init_page_scan(self, saveToFile, queryExpression, urlPath=''):
+    # Scan for pagination and get links.
+    def init_page_scan(self, queryExpression, urlPath=''):
         try:
             url = self.baseUrl + urlPath
-
             respData = self.page_html_content(url)
 
             # Get pagination link list
@@ -42,7 +21,8 @@ class Scrapper:
         except Exception as e:
             print(str(e))
 
-    def get_web_content(self, saveToFile, queryExpression, urlPath=''):
+    # Get node content per link
+    def get_web_content(self, saveToFile, cleanTemp, queryExpression, urlPath=''):
         try:
             queryList = []
             queryList = self.paginationQueryList
@@ -53,25 +33,22 @@ class Scrapper:
 
                 for queryString in queryList:
                     queryUrl = url + urlPath + queryString
-
                     respData = self.page_html_content(queryUrl)
-                    root = self.parse_html(respData, queryExpression)
+                    root = self.parse_html(respData, queryExpression[0])
 
                     data = []
                     for row in root:
-                        test = row.xpath('./td/span/a/text() | ./td/span/a/@href | ./td[@headers="hdrDepartment"]/span/text() | ./td/div/span/a/text() | ./td/div/span/span/text()')
+                        test = row.xpath(queryExpression[1])
                         data.append(test)
-                    print(data)
 
                     saveFile = open(saveToFile, "a+")
-
                     # for element in new_chain_map:
                     saveFile.write(str(data))
                     saveFile.write('\n')
                     saveFile.close()     
 
                 # Get content in temp file and clean              
-                self.cleanList(saveToFile)
+                self.cleanList(saveToFile, cleanTemp)
                     # print("%s => %s" % (e.tag, e.text))
                     # print(e.xpath('//span/a'))
                     # etree.dump(e)
@@ -79,13 +56,19 @@ class Scrapper:
         except Exception as e:
             print(str(e))
 
+    def page_html_content(self, url):
+        headers = {}
+        headers['User-Agent'] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101 Firefox/78.0"
+        req = urllib.request.Request(url, headers=headers)
+        resp = urllib.request.urlopen(req)
+        return resp.read()
+
     # Clean list in temp file and save to another file
-    def cleanList(self, filename):
+    def cleanList(self, filename, distFile):
         f = open(filename, "r")
         file = f.read() 
         result = file.replace('[[','[').replace(']]','],')
-        # print(lis)
-        saveFile = open('scrap.txt', "w")
+        saveFile = open(distFile, "w")
         # for element in new_chain_map:
         saveFile.write(str(result))
         saveFile.write('\n')
@@ -122,16 +105,31 @@ class Scrapper:
     def get_pagination_list(self):
         return self.paginationQueryList
 
+    def get_url_list(self, filename, columnPosition):
+        f = open(filename, "r")
+        file = f.read() 
+        result = file.replace(']',']]').split('],')
+        queryList = []
+        for i in result:
+            row = i.replace('[','').replace(']','').replace("'","").replace(" ","").split(',')
+            column = row[columnPosition]
+            if column != '\n\n':
+              queryList.append(column.strip())
+        self.paginationQueryList = queryList
+
     def get_page_content(self):
         return self.pageContent
 
 
 scanSite = Scrapper("https://jobs.sanctuary-group.co.uk")
-# scanSite.cleanList('temp.txt')
-scanSite.init_page_scan('test4.txt', '//ul[@class="pagination"]/li/a/@href', '/search')
-scanSite.get_web_content('temp.txt', '//table[@id="searchresults"]/tbody/tr', '/search/')
-
-
+scanSite.init_page_scan('//ul[@class="pagination"]/li/a/@href', '/search')
 # print(scanSite.get_pagination_list())
-# print(scanSite.get_page_content())
+
+queryExpression = ['//table[@id="searchresults"]/tbody/tr', './td/span/a/text() | ./td/span/a/@href | ./td[@headers="hdrDepartment"]/span/text() | ./td/div/span/a/text() | ./td/div/span/span/text()']
+scanSite.get_web_content('temp.txt', 'cleanTemp.txt', queryExpression, '/search/')
+
+scanSite.get_url_list('cleanTemp.txt', 0)
+
+queryExpressionTwo = ['//div[@id="innershell"]/div/div/div[@class="jobDisplayShell"]/div/div/div[@class="job"]', './div/div/div/div/h1/span[@itemprop="title"]/text() | ./div/div/div/div/span[@itemprop="jobLocation"]/p/span/text()']
+scanSite.get_web_content('scrap.txt', 'cleanScrap.txt', queryExpressionTwo)
 # scanSite.get_site_robot_txt()

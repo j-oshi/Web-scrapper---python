@@ -1,67 +1,137 @@
 import tkinter as tk
+from searchform import SearchForm
 # from scrapper import Scrapper
+
 
 class Application(tk.Frame):
     def __init__(self, master=None):
         super().__init__(master)
         self.master = master
         self.numberOfForms = 0
+        # self.searchform = SearchForm()
+        self.storeFormInputs = []
         # self.pack()
         self.create_scrapper_widgets()
 
     def create_scrapper_widgets(self):
-        self.frame = tk.Frame(master=self.master, bg='#2b2d2f' )
+        self.frame = tk.Frame(master=self.master, bg="#2b2d2f")
         self.frame.pack(fill=tk.BOTH, expand=True)
 
-        self.titleframe = tk.Frame(master=self.frame, padx=10, pady=10, height=10, bg="#C0C0C0")
+        self.titleframe = tk.Frame(
+            master=self.frame, padx=10, pady=10, height=10, bg="#C0C0C0"
+        )
         self.titleframe.pack(fill=tk.X)
-        self.titlelabel = tk.Label(master=self.titleframe, font=(None, 18), fg="#2b2d2f", text=f"Web scrapper", bg="#C0C0C0")
+        self.titlelabel = tk.Label(
+            master=self.titleframe,
+            font=(None, 18),
+            fg="#2b2d2f",
+            text=f"Web scrapper",
+            bg="#C0C0C0",
+        )
         self.titlelabel.pack()
 
-        # self.initframe = tk.Frame(master=self.titleframe, padx=10, pady=10, height=100)
-        # self.initframe.pack()
+        self.topframe = tk.Frame(
+            master=self.frame, padx=10, pady=10, height=10, bg="#2b2d2f"
+        )
+        self.topframe.pack(fill=tk.X)
 
-        # self.initlabel = tk.Label(master=self.initframe, text=f"Get pagination", font=(None, 15), padx=10, pady=10)
-        # self.initlabel.grid(row=0, column=0, columnspan=2)
+        self.baseurllabel = tk.Label(
+            master=self.topframe,
+            text=f"Base url: ",
+            font=(None, 13),
+            padx=10,
+            pady=10,
+            fg="#C0C0C0",
+            bg="#2b2d2f",
+        )
 
-        # self.baseurllabel = tk.Label(master=self.initframe, text=f"base url", font=(None, 13), padx=10, pady=10)
-        # self.baseurlentry = tk.Entry(master=self.initframe)
-        # self.baseurllabel.grid(row=1, column=0)
-        # self.baseurlentry.grid(row=1, column=1)
+        self.baseurllabel.grid(row=0, column=0)
 
-        # self.searchPathlabel = tk.Label(master=self.initframe, text=f"search path url", font=(None, 13), padx=10, pady=10)
-        # self.searchPathentry = tk.Entry(master=self.initframe)
-        # self.searchPathlabel.grid(row=2, column=0)
-        # self.searchPathentry.grid(row=2, column=1)
+        self.baseurlentry = tk.Entry(master=self.topframe, width=50)
+        self.baseurlentry.grid(row=0, column=1)
 
-        # self.mainframe = tk.Frame(master=self.master, padx=10, pady=10, height=10, relief=tk.RIDGE, borderwidth=5)
-        # self.mainframe.pack(fill=tk.X)
+        self.searchPathlabel = tk.Label(
+            master=self.topframe,
+            text=f"Path url: ",
+            font=(None, 13),
+            padx=10,
+            pady=10,
+            fg="#C0C0C0",
+            bg="#2b2d2f",
+        )
 
-        # self.submainframe = tk.Frame(master=self.mainframe, padx=10, pady=10, height=10)
-        # self.submainframe.grid(row=0, column=0, columnspan=2)
+        self.searchPathlabel.grid(row=0, column=2)
 
-        # self.addsearch = tk.Button(master=self.mainframe, font=(None, 13), padx=10, pady=10)
-        # self.addsearch["text"] = "add search"
-        # self.addsearch["command"] = self.addsearches
-        # self.addsearch.grid(row=1, column=0, columnspan=2)
+        self.subdomainPathentry = tk.Entry(master=self.topframe, width=50)
+        self.subdomainPathentry.grid(row=0, column=3)
 
+        self.mainframe = tk.Frame(
+            master=self.frame, padx=10, pady=10, height=10, bg="#2b2d2f"
+        )
+        self.mainframe.pack(fill=tk.X)
 
-        self.submitframe = tk.Frame(master=self.frame, padx=10, pady=10, bg='#2b2d2f')
+        self.addsearchlabel = tk.Label(
+            master=self.mainframe,
+            text=f"Add child page search: ",
+            font=(None, 13),
+            padx=10,
+            pady=10,
+            fg="#C0C0C0",
+            bg="#2b2d2f",
+        )
+        self.addsearchlabel.grid(row=0, column=0)
+
+        self.addsearch = tk.Button(
+            master=self.mainframe, font=(None, 13), padx=5, pady=5
+        )
+        self.addsearch["text"] = "Add search"
+        self.addsearch["command"] = self.addsearches
+        self.addsearch.grid(row=0, column=1)
+
+        self.submainframe = tk.Frame(
+            master=self.frame, padx=20, pady=10, height=10, bg="#2b2d2f"
+        )
+        self.submainframe.pack(fill=tk.X)
+
+        self.submitframe = tk.Frame(master=self.frame, padx=10, pady=10, bg="#2b2d2f")
         self.submitframe.pack()
-        
-        self.runscrapperexe = tk.Button(master=self.submitframe, font=(None, 13), padx=5, pady=5)
+
+        self.runscrapperexe = tk.Button(
+            master=self.submitframe, font=(None, 13), padx=5, pady=5
+        )
         self.runscrapperexe["text"] = "Run scrapper"
         self.runscrapperexe["command"] = self.runScrapper
         self.runscrapperexe.pack()
 
     def addsearches(self):
-        scrap_searches = []
-        if self.numberOfForms < 2:
-            formNum = self.numberOfForms
-            print(self.numberOfForms)
-            scrap_searches.append(self.addsearchForm(formNum))
-            self.numberOfForms = formNum + 1
-            self.mainframe = scrap_searches
+        row = 2
+        column = 2
+        value = self.numberOfForms
+        if value < 2:
+            grids = self.grid(row, column)
+            self.addsearchForm(value, grids[value])
+        self.numberOfForms += 1
+
+    def grid(self, row, column):
+        grids = []
+        for i in range(row):
+            for j in range(column):
+                grids.append([i, j])
+        return grids
+
+
+        #         grid.append([])
+        #         grid[-1].append(0)
+        # rows += 1
+        # print(grid)
+
+        # scrap_searches = []
+        # if self.numberOfForms < 2:
+        #     formNum = self.numberOfForms
+        #     print(self.numberOfForms)
+        #     scrap_searches.append(self.addsearchForm(formNum))
+        #     self.numberOfForms = formNum + 1
+        #     self.mainframe = scrap_searches
         # entries = []
         # for field in 'base url', 'search url':
         #     entries.append(LabelEntry(frame, field, button))
@@ -70,49 +140,33 @@ class Application(tk.Frame):
         #                       command=self.master.destroy)
         # self.quit.pack(side="bottom")
 
-    def addsearchForm(self, formNumber):
-        formName = 'addframe' + str(formNumber)
-        self.formName = tk.Frame(master=self.submainframe, padx=10, pady=10, height=100, relief=tk.RIDGE, borderwidth=5)
-        self.formName.grid(row=str(formNumber), column=0, columnspan=2)
-
-        self.initlabel = tk.Label(master=self.formName, text='Form ' + str(formNumber + 1), font=(None, 15), padx=10, pady=10)
-        self.initlabel.grid(row=0, column=0, columnspan=2)
-
-        self.baseurllabel = tk.Label(master=self.formName, text=f"Search url", font=(None, 13), padx=10, pady=10)
-        self.baseurlentry = tk.Entry(master=self.formName, width=40)
-        self.baseurllabel.grid(row=1, column=0)
-        self.baseurlentry.grid(row=1, column=1)
-
-        self.filelabel = tk.Label(master=self.formName, text=f"Temp file", font=(None, 13), padx=10, pady=10)
-        self.fileentry = tk.Entry(master=self.formName, width=40)
-        self.filelabel.grid(row=1, column=0)
-        self.fileentry.grid(row=1, column=1)
-     
-        self.cleanfilelabel = tk.Label(master=self.formName, text=f"Clean temp file", font=(None, 13), padx=10, pady=10)
-        self.cleanfileentry = tk.Entry(master=self.formName, width=40)
-        self.cleanfilelabel.grid(row=2, column=0)
-        self.cleanfileentry.grid(row=2, column=1)
-
-        self.subfilelabel = tk.Label(master=self.formName, text=f"Sub temp file", font=(None, 13), padx=10, pady=10)
-        self.subfileentry = tk.Entry(master=self.formName, width=40)
-        self.filelabel.grid(row=3, column=0)
-        self.fileentry.grid(row=3, column=1)
-     
-        self.subcleanfilelabel = tk.Label(master=self.formName, text=f"Clean sub temp file", font=(None, 13), padx=10, pady=10)
-        self.subcleanfileentry = tk.Entry(master=self.formName, width=40)
-        self.subcleanfilelabel.grid(row=4, column=0)
-        self.subcleanfileentry.grid(row=4, column=1)
-
-        self.text_box = tk.Text(master=self.formName)
-        self.text_box.grid(row=0, column=3, rowspan=5, padx=10, pady=10)
+    # Create instances of searchform and save
+    def addsearchForm(self, formNumber, gridPos):
+        searchR = SearchForm(self.submainframe, gridPos)
+        searchR.showForm()
+        self.storeFormInputs.append(searchR)
 
     def runScrapper(self):
-        # scanSite = Scrapper("https://jobs.sanctuary-group.co.uk/search/")
-        # scanSite.get_web_content('test2.txt')
-        baseurl = self.baseurlentry.get()
-        searchurl = self.searchPathentry.get()
-        print(baseurl)
-        print(searchurl)
+        # Get base url value
+        print(self.baseurlentry.get())
+        print(self.subdomainPathentry.get())
+
+        # for i in self.storeFormInputs.items():
+        #     print(i.getFormUrl())
+        #     print(i.getFormFilePath())
+        #     print(i.getFormRow())
+        #     print(i.getFormColumn())
+
+        # Get values from instances
+        print(self.storeFormInputs[0].getFormUrl())
+        print(self.storeFormInputs[0].getFormFilePath())
+        print(self.storeFormInputs[0].getFormRow())
+        print(self.storeFormInputs[0].getFormColumn())
+
+        print(self.storeFormInputs[1].getFormUrl())
+        print(self.storeFormInputs[1].getFormFilePath())
+        print(self.storeFormInputs[1].getFormRow())
+        print(self.storeFormInputs[1].getFormColumn())
 
 root = tk.Tk()
 app = Application(master=root)

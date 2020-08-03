@@ -8,216 +8,197 @@ class SearchWidget:
     def __init__(self, master, parent):
         self.master = master
         self.parent = parent
-        self.title="Scrapper " + str(SearchWidget.searchwidget)
-        # self.url = ''
-        # self.filepath = ''
-        # self.row = ''
-        # self.column = ''
+        self.title = "Scrapper " + str(SearchWidget.searchwidget)
+
         self.__createMiniStyle()
         self.__widget_container()
         self.__widget_title()
+        self.__widget_select()
         self.__widget_base_content()
         self.__widget_subdomain_content()
+        self.__widget_output_content()
+        self.__widget_row_search()
+        self.__widget_column_search()
+        self.__hide_connect_to()
         self.__widget_submit()
-        # self.widget_label()
-        # self.widget_base_content()
-        # self.widget_base_url()
-        # self.widget_subbase_content()
-        # self.widget_subbase_url()
-        # self.widget_search()
-        # self.widget_row_search()
-        # self.widget_column_search()
-        # self.remove_button()
-        # self.widget_subdomain_url()
+        self.__hide_process()
+
         SearchWidget.searchwidget += 1
 
     def __createMiniStyle(self):
         self.s = ttk.Style()
-        self.s.configure("ws.TFrame", background="#2b2d2f", padding=10, border=100)
+        self.s.configure("ws.TFrame", background="#2b2d2f", padding=10)
         self.s.configure(
             "ws.TLabel",
             background="#2b2d2f",
             foreground="#C0C0C0",
-            font=(None, 13),
+            font=(None, 12),
             padding=10,
         )
         self.s.configure(
             "ur.TLabel",
             background="#2b2d2f",
             foreground="#C0C0C0",
-            font=(None, 13),
+            font=(None, 12),
             padding=10,
         )
-        self.s.configure("ur.TEntry", foreground="#2b2d2f", padding=10)
-        self.s.configure(
-            "sur.TLabel",
-            background="#2b2d2f",
-            foreground="#C0C0C0",
-            font=(None, 13),
-            padding=10,
-        )
-        self.s.configure("sur.TEntry", foreground="#2b2d2f", padding=10)
-        self.s.configure('sub.TButton', font=(None, 12), padding=5)
 
     def __widget_container(self):
-        self.formName = ttk.Frame(
-            master=self.master, relief=tk.RIDGE, borderwidth=5, style="ws.TFrame"
+        self.formName = tk.Frame(
+            master=self.master, relief=tk.RIDGE, bg='#2b2d2f', borderwidth=5, padx=10, pady=10
         )
         self.formName.pack(side="left")
 
     def __widget_title(self):
-        self.formlabel = ttk.Label(
+        self.formlabel = tk.Label(
             master=self.formName,
             text=self.title,
-            style="ws.TLabel",
+            bg='#2b2d2f',
+            fg='#C0C0C0',
+            font=(None, 12), 
+            pady=10
         )
-        self.formlabel.pack()
+        self.formlabel.pack(fill=tk.X)
+
+    def __widget_select(self):
+        self.frameOne = tk.Frame(master=self.formName, bg='#2b2d2f', padx=5)
+        self.frameOne.pack(fill=tk.X)
+
+        self.comboLabel = tk.Label(self.frameOne, font=(None, 10), text="Select type: ", bg='#2b2d2f', fg='#C0C0C0', width=15, padx=5, pady=10)
+        self.comboLabel.grid(column=0, row=0)
+
+        n = tk.StringVar()
+        self.comboSelect = ttk.Combobox(self.frameOne, width=36, textvariable=n)
+        self.comboSelect['values'] = (' Single', ' Multiple')
+        self.comboSelect.grid(column=1, row=0)
+        self.comboSelect.current()
+        self.comboSelect.bind("<<ComboboxSelected>>", self.onselectConnectChange)
 
     def __widget_base_content(self):
-        self.formContent = tk.Frame(master=self.formName,)
-        self.formContent.pack()
+        self.frameTwo = tk.Frame(master=self.formName, bg='#2b2d2f', pady=5)
+        self.frameTwo.pack(fill=tk.X)
 
-        self.baseurllabel = ttk.Label(
-            master=self.formContent, text="Base url: ", style="ur.TLabel"
-        )
+        self.baseurllabel = tk.Label(master=self.frameTwo, font=(None, 10), text="Base url: ", bg='#2b2d2f', fg='#C0C0C0', width=15, padx=5, pady=5)
         self.baseurllabel.pack(side="left")
 
-        # Search url entry
-        self.url = ttk.Entry(master=self.formContent, style="ur.TEntry")
-        self.url.pack(side="left")
+        self.url = tk.Entry(master=self.frameTwo, width=40)
+        self.url.pack(side="left", expand=1)
 
     def __widget_subdomain_content(self):
-        self.formSubUrl = tk.Frame(master=self.formName,)
-        self.formSubUrl.pack()
+        self.frameThree = tk.Frame(master=self.formName, bg='#2b2d2f', pady=5)
+        self.frameThree.pack(fill=tk.X)
 
-        self.subUrllabel = ttk.Label(
-            master=self.formSubUrl, text="Sub Domian url: ", style="sur.TLabel"
-        )
-        self.subUrllabel.pack(side="left")
+        self.suburllabel = tk.Label(master=self.frameThree, font=(None, 10), text="Sub domain url: ", bg='#2b2d2f', fg='#C0C0C0', width=15, padx=5, pady=5)
+        self.suburllabel.pack(side="left")
+        self.suburl = tk.Entry(master=self.frameThree, width=40)
+        self.suburl.pack(side="left", expand=1)
 
-        # Search url entry
-        self.subUrl = ttk.Entry(master=self.formSubUrl, style="ur.TEntry")
-        self.subUrl.pack(side="left")
+    def __widget_output_content(self):
+        self.frameInner = tk.Frame(master=self.formName, relief=tk.RIDGE, borderwidth=5, bg='#2b2d2f', padx=5, pady=5)
+        self.frameInner.pack(fill=tk.X)
+
+        self.frameFour = tk.Frame(master=self.frameInner, bg='#2b2d2f')
+        self.frameFour.pack(fill=tk.X)
+
+        self.outputlabel = tk.Label(master=self.frameFour, font=(None, 10), text="Output to: ", bg='#2b2d2f', fg='#C0C0C0', width=15, padx=5, pady=5)
+        self.outputlabel.pack(side="left")
+        self.output = tk.Entry(master=self.frameFour, width=39)
+        self.output.pack(side="left", expand=1)
+
+        self.frameFive = tk.Frame(master=self.frameInner, bg='#2b2d2f')
+        self.frameFive.pack(fill=tk.X)
+
+        self.connectLabel = tk.Label(self.frameFive, font=(None, 10), text="Connect to: ", bg='#2b2d2f', fg='#C0C0C0', width=15, padx=5, pady=10)
+        self.connectLabel.grid(column=0, row=0)
+
+        n = tk.StringVar()
+        self.connectSelect = ttk.Combobox(self.frameFive, width=35, textvariable=n)
+        self.connectSelect['values'] = (' This', ' That')
+        self.connectSelect.grid(column=1, row=0)
+        self.connectSelect.current()
+
+    def __widget_row_search(self):
+        self.frameSix = tk.Frame(master=self.formName, bg='#2b2d2f', pady=5)
+        self.frameSix.pack(fill=tk.X)
+
+        self.nodeSearchlabel = tk.Label(master=self.frameSix, font=(None, 10), text='Node search: ', bg='#2b2d2f', fg='#C0C0C0', width=15, padx=5, pady=5)
+        self.nodeSearchlabel.pack(side="left")
+
+        self.nodeSearch = tk.Entry(master=self.frameSix, width=40)
+        self.nodeSearch.pack(side="left", expand=1)
+
+    def __widget_column_search(self):
+        self.frameSeven = tk.Frame(master=self.formName, bg='#2b2d2f', pady=5)
+        self.frameSeven.pack(fill=tk.X)
+
+        self.fieldSearchlabel = tk.Label(master=self.frameSeven, font=(None, 10), text='Field search: ', bg='#2b2d2f', fg='#C0C0C0', width=15, padx=5, pady=5)
+        self.fieldSearchlabel.pack(side="left")
+        self.fieldSearch = tk.Text(master=self.frameSeven, width=30, height = 10)
+        self.fieldSearch.pack(side="left", expand=1)
 
     def __widget_submit(self):
-        self.subSubmitFrame = ttk.Frame(master=self.formName, style="s.TFrame")
+        self.subSubmitFrame = tk.Frame(master=self.formName, bg='#2b2d2f', pady=10)
         self.subSubmitFrame.pack(fill=tk.X)
 
-        self.subSubmitButton = ttk.Button(
-            master=self.subSubmitFrame, style="sub.TButton"
+        self.subSubmitButton = tk.Button(
+            master=self.subSubmitFrame, font=(None, 10), padx=5, pady=5, activebackground='green'
         )
-
         self.subSubmitButton["text"] = "Add to process"
         self.subSubmitButton["command"] = self.getValue
-        self.subSubmitButton.pack(side="left")
+        self.subSubmitButton.pack()
 
-        self.rsubSubmitButton = ttk.Button(
-            master=self.subSubmitFrame, style="sub.TButton"
+        self.rsubSubmitButton = tk.Button(
+            master=self.subSubmitFrame, font=(None, 10), padx=5, pady=5
         )
-
         self.rsubSubmitButton["text"] = "Remove from process"
         self.rsubSubmitButton["command"] = self.removeValue
-        self.rsubSubmitButton.pack(side="left")
+        self.rsubSubmitButton.pack()
+
+    def __hide_connect_to(self):
+        self.frameFive.pack_forget()
+
+    def __hide_process(self):
+        self.subSubmitButton.pack_forget() 
+        self.rsubSubmitButton.pack_forget() 
 
     def getValue(self):
+        self.subSubmitButton.pack_forget() 
         dict = {}
         key = self.title
+        scrapper_type = self.comboSelect.get()
         url = self.url.get()
-        subUrl = self.subUrl.get()
-        dict[key] = {'url': url, 'subUrl': subUrl}
+        subUrl = self.suburl.get()
+        dict[key] = {'url': url, 'type': scrapper_type, 'subUrl': subUrl}
+        self.formName.configure(background='green')
         self.parent.storeValue.update(dict)
+        self.rsubSubmitButton.pack()
+        if self.parent.numberOfSearchWidgets > 0: 
+            self.parent.submitButton.pack() 
+        # self.rsubSubmitButton.pack() 
 
     def removeValue(self):
-        dict = {}
-        key = self.title
-        url = self.url.get()
-        subUrl = self.subUrl.get()
-        dict[key] = {'url': url, 'subUrl': subUrl}
-        self.parent.storeValue.update(dict)
-
-    # def widget_subbase_content(self):
-    #     self.search_subcontent = tk.Frame(
-    #         master=self.formName,
-    #         bg="#2b2d2f",
-    #         padx=10,
-    #         pady=10
-    #     )
-    #     self.search_subcontent.pack()
-
-    # def widget_subbase_url(self):
-    #     self.subdomainurllabel = tk.Label(
-    #         master=self.search_subcontent,
-    #         text=f"Sub domain: ",
-    #         font=(None, 12),
-    #         fg="#C0C0C0",
-    #         bg="#2b2d2f",
-    #     )
-    #     self.subdomainurllabel.grid(row = 0, sticky = W)
-
-    #     # Search url entry
-    #     self.suburl = tk.Entry(master=self.search_subcontent)
-    #     self.suburl.grid(row=0, column=1)
-
-    # def widget_search(self):
-    #     self.search = tk.Frame(
-    #         master=self.formName,
-    #         bg="#2b2d2f",
-    #         padx=10,
-    #         pady=10
-    #     )
-    #     self.search.pack()
-
-    # def widget_row_search(self):
-    #     self.rowurllabel = tk.Label(
-    #         master=self.search,
-    #         text=f"Row search: ",
-    #         font=(None, 12),
-    #         fg="#C0C0C0",
-    #         bg="#2b2d2f",
-    #         padx=10,
-    #         pady=10
-    #     )
-    #     self.rowurllabel.grid(row=0, column=0)
-
-    #     # Search url entry
-    #     self.row = tk.Entry(master=self.search, width=55)
-    #     self.row.grid(row=1, column=0, columnspan=2)
-
-    # def widget_column_search(self):
-    #     self.columnlabel = tk.Label(
-    #         master=self.search,
-    #         text=f"Column expressions",
-    #         font=(None, 12),
-    #         padx=10,
-    #         pady=10,
-    #         fg="#C0C0C0",
-    #         bg="#2b2d2f",
-    #     )
-    #     self.columnlabel.grid(row=2, column=0)
-
-    #     # Column expressions entry
-    #     self.column = tk.Text(master=self.search, width=45, height = 10)
-    #     self.column.grid(row=3, column=0)
-
-    # def remove_button(self):
-    #     self.removesearch = tk.Button(
-    #         master=self.formName, font=(None, 13), padx=5, pady=5
-    #     )
-    #     self.removesearch["text"] = "Remove widget"
-    #     self.removesearch["command"] = self.removeWidget
-    #     self.removesearch.pack()
-
-    # def removeWidget(self):
-    #     self.formName.pack_forget()
-    #     self.formName.destroy()
-    #     if self.parent.numberOfSearchWidgets > 0:
-    #         self.parent.numberOfSearchWidgets = self.parent.numberOfSearchWidgets - 1
-
-
-
-    # def getFormUrl(self):
-    #     url = self.url.get()
-    #     return url
+        self.formName.pack_forget()
+        self.formName.destroy()
+        if self.parent.numberOfSearchWidgets > 0:
+            self.parent.numberOfSearchWidgets = self.parent.numberOfSearchWidgets - 1
+            if self.parent.numberOfSearchWidgets < 1:
+                self.parent.submitButton.pack_forget() 
+        # dict = {}
+        # key = self.title
+        # url = self.url.get()
+        # subUrl = self.subUrl.get()
+        # dict[key] = {'url': url, 'subUrl': subUrl}
+        # self.parent.storeValue.update(dict)
+    def onselectConnectChange(self, *args):
+        switchOutput = self.comboSelect.get().strip().lower()
+        self.subSubmitButton.pack()
+        self.rsubSubmitButton.pack_forget()  
+        if switchOutput == 'multiple':
+            self.frameFive.pack() 
+            self.formName.configure(background='orange')
+        else: 
+            self.frameFive.pack_forget() 
+            self.formName.configure(background='yellow')
 
     # def getFormFilePath(self):
     #     filepath = self.filepath.get()

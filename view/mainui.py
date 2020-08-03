@@ -3,7 +3,6 @@ import tkinter.ttk as ttk
 from searchWidget import SearchWidget
 # from scrapper import Scrapper
 
-
 class MainUi(ttk.Frame):
     def __init__(self, master=None):
         super().__init__(master)

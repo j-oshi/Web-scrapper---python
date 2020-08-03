@@ -1,7 +1,6 @@
 import tkinter as tk
 import tkinter.ttk as ttk
 
-
 class SearchWidget:
     searchwidget = 1
 
@@ -28,20 +27,6 @@ class SearchWidget:
     def __createMiniStyle(self):
         self.s = ttk.Style()
         self.s.configure("ws.TFrame", background="#2b2d2f", padding=10)
-        self.s.configure(
-            "ws.TLabel",
-            background="#2b2d2f",
-            foreground="#C0C0C0",
-            font=(None, 12),
-            padding=10,
-        )
-        self.s.configure(
-            "ur.TLabel",
-            background="#2b2d2f",
-            foreground="#C0C0C0",
-            font=(None, 12),
-            padding=10,
-        )
 
     def __widget_container(self):
         self.formName = tk.Frame(
@@ -168,7 +153,11 @@ class SearchWidget:
         scrapper_type = self.comboSelect.get()
         url = self.url.get()
         subUrl = self.suburl.get()
-        dict[key] = {'url': url, 'type': scrapper_type, 'subUrl': subUrl}
+        file = self.output.get()
+        connectTo =  self.connectSelect.get() if scrapper_type == ' Multiple' else ''
+        row_search = self.nodeSearch.get()
+        column_search = self.fieldSearch.get("1.0", tk.END)
+        dict[key] = {'type': scrapper_type, 'url': url, 'subUrl': subUrl, 'file': file, 'connectTo': connectTo, 'row_search': row_search, 'column_search': column_search}
         self.formName.configure(background='green')
         self.parent.storeValue.update(dict)
         self.rsubSubmitButton.pack()

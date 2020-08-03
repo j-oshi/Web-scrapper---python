@@ -1,6 +1,10 @@
+import sys
+sys.path.append('D:/python-project/Web-scrapper---python/scrapper/')
+
 import tkinter as tk
 import tkinter.ttk as ttk
 from searchWidget import SearchWidget
+from scrapperFactory import ScrapperFactory
 # from scrapper import Scrapper
 
 class MainUi(ttk.Frame):
@@ -83,8 +87,10 @@ class MainUi(ttk.Frame):
 
     def runProcess(self):
         for key in self.storeValue:
-            print(key, ' : ', self.storeValue[key])
-
+            # print(key, ' : ', self.storeValue[key])
+            scrapper_factory = ScrapperFactory()
+            scrapObj = scrapper_factory.create_scrapper(key, self.storeValue[key])
+            print(scrapObj.get_web_content())
     # Create instances of searchform and save
 
 

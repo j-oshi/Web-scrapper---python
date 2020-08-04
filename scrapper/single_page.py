@@ -4,13 +4,15 @@ from lxml import etree, html
 
 class SinglePage(Scrapper): 
     instances = []
-    def __init__(self, name, url, subDomain, fileName, row, column):
+    def __init__(self, name, scrapperData):
         self.name = name
-        self.url = url
-        self.subDomain = subDomain
-        self.fileName = fileName
-        self.rowExpression = row
-        self.columnExpression = column
+        self.url = scrapperData.get('url')
+        self.subDomain= scrapperData.get('subUrl')
+        self.fileName = scrapperData.get('file')
+        self.rowExpression = scrapperData.get('row_search')
+        self.columnExpression = scrapperData.get('column_search')
+
+        self.storedResult = {}
         self.__class__.instances.append(self)
     
     def get_web_content(self):
@@ -19,13 +21,12 @@ class SinglePage(Scrapper):
             respData = self.get_html_content(url)
 
             queryContent = self.get_query_list(respData, self.rowExpression, self.columnExpression)
+            self.storedResult = queryContent
+
+            # save to fie
             file_name = self.name.replace(' ', '_') + '.txt'
             self.save_to_file(file_name, queryContent)
-            # # Get pagination link list
-            # paginationNodes = self.pagination_list(respData, queryExpression)
 
-            # # Save unique list
-            # self.paginationQueryList = self.ordered_set(paginationNodes)
         except Exception as e:
             print(str(e)) 
 
@@ -46,6 +47,29 @@ class SinglePage(Scrapper):
         saveFile.write(str(data))
         saveFile.write('\n')
         saveFile.close() 
+
+    def get_result(self):
+        return self.storedResult
+
+    def convert_to_sub_query_expressions(self):
+        self.rowExpression      
+        self.columnExpression
+        pass
+
+    def test_run(self):
+        try:
+            f = open('test1.txt', "r")
+            file = f.read() 
+
+            queryContent = self.get_query_list(file, self.rowExpression, self.columnExpression)
+            self.storedResult = queryContent
+
+            # save to fie
+            file_name = self.name.replace(' ', '_') + '.txt'
+            self.save_to_file('test2', queryContent)
+            
+        except Exception as e:
+            print(str(e)) 
 
     @classmethod
     def printIntances(cls):

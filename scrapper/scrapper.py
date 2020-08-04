@@ -16,6 +16,7 @@ class Scrapper(ABC):
     @abstractmethod
     def get_html_content(self): 
         pass
+    
     @abstractmethod
     def get_query_list(self):
         pass

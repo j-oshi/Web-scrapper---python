@@ -86,11 +86,13 @@ class MainUi(ttk.Frame):
         self.submitButton.pack()
 
     def runProcess(self):
-        for key in self.storeValue:
-            # print(key, ' : ', self.storeValue[key])
+        scrappers = self.storeValue
+        for key, scrapper in scrappers.items():
+            print(scrapper)
             scrapper_factory = ScrapperFactory()
-            scrapObj = scrapper_factory.create_scrapper(key, self.storeValue[key])
-            print(scrapObj.get_web_content())
+            scrapObj = scrapper_factory.create_scrapper(key, scrapper)
+            scrapObj.get_web_content()
+            print(scrapObj.get_result())
     # Create instances of searchform and save
 
 

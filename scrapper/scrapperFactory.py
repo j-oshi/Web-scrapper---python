@@ -6,6 +6,5 @@ class ScrapperFactory():
         scrapperType = scrapperData.get('type').strip().lower()
         if scrapperType == 'single':
             return SinglePage(scrapperName, scrapperData)
-            # print(scrapperName + ' factory is active' + scrapperData['type'])
-        elif scrapperType == 'muliple':
-            print('yes sir')
+        elif scrapperType == 'multiple':
+            return MultiPage(scrapperName, scrapperData)

@@ -92,7 +92,7 @@ class MainUi(ttk.Frame):
             scrapper_factory = ScrapperFactory()
             scrapObj = scrapper_factory.create_scrapper(key, scrapper)
             scrapObj.get_web_content()
-            print(scrapObj.get_result())
+            # print(scrapObj.get_result())
     # Create instances of searchform and save
 
 

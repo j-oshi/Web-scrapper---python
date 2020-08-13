@@ -141,32 +141,32 @@ class Application(tk.Frame):
         # self.quit.pack(side="bottom")
 
     # Create instances of searchform and save
-    def addsearchForm(self, formNumber, gridPos):
-        searchR = SearchForm(self.submainframe, gridPos)
-        searchR.showForm()
-        self.storeFormInputs.append(searchR)
+    # def addsearchForm(self, formNumber, gridPos):
+    #     searchR = SearchForm(self.submainframe, gridPos)
+    #     searchR.showForm()
+    #     self.storeFormInputs.append(searchR)
 
-    def runScrapper(self):
-        # Get base url value
-        print(self.baseurlentry.get())
-        print(self.subdomainPathentry.get())
+    # def runScrapper(self):
+    #     # Get base url value
+    #     print(self.baseurlentry.get())
+    #     print(self.subdomainPathentry.get())
 
-        # for i in self.storeFormInputs.items():
-        #     print(i.getFormUrl())
-        #     print(i.getFormFilePath())
-        #     print(i.getFormRow())
-        #     print(i.getFormColumn())
+    #     # for i in self.storeFormInputs.items():
+    #     #     print(i.getFormUrl())
+    #     #     print(i.getFormFilePath())
+    #     #     print(i.getFormRow())
+    #     #     print(i.getFormColumn())
 
-        # Get values from instances
-        print(self.storeFormInputs[0].getFormUrl())
-        print(self.storeFormInputs[0].getFormFilePath())
-        print(self.storeFormInputs[0].getFormRow())
-        print(self.storeFormInputs[0].getFormColumn())
+    #     # Get values from instances
+    #     print(self.storeFormInputs[0].getFormUrl())
+    #     print(self.storeFormInputs[0].getFormFilePath())
+    #     print(self.storeFormInputs[0].getFormRow())
+    #     print(self.storeFormInputs[0].getFormColumn())
 
-        print(self.storeFormInputs[1].getFormUrl())
-        print(self.storeFormInputs[1].getFormFilePath())
-        print(self.storeFormInputs[1].getFormRow())
-        print(self.storeFormInputs[1].getFormColumn())
+    #     print(self.storeFormInputs[1].getFormUrl())
+    #     print(self.storeFormInputs[1].getFormFilePath())
+    #     print(self.storeFormInputs[1].getFormRow())
+    #     print(self.storeFormInputs[1].getFormColumn())
 
 root = tk.Tk()
 app = Application(master=root)

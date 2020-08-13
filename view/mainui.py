@@ -5,14 +5,13 @@ import tkinter as tk
 import tkinter.ttk as ttk
 from searchWidget import SearchWidget
 from scrapperFactory import ScrapperFactory
-# from scrapper import Scrapper
-
 class MainUi(ttk.Frame):
     def __init__(self, master=None):
         super().__init__(master)
         self.master = master
         self.numberOfSearchWidgets = 0
         self.storeValue = {}
+        self.storeChildValue = {}
 
         self.__createStyle()
         self.__createWIdget()
@@ -90,61 +89,9 @@ class MainUi(ttk.Frame):
         for key, scrapper in scrappers.items():
             print(scrapper)
             scrapper_factory = ScrapperFactory()
-            scrapObj = scrapper_factory.create_scrapper(key, scrapper)
-            scrapObj.get_web_content()
-            # print(scrapObj.get_result())
-    # Create instances of searchform and save
-
-
-    # def runScrapper(self):
-    #     print('Testing')
-        # try:
-        #     scrapper_url = self.baseurlentry.get()
-        #     scrap_base = Scrapper(scrapper_url)
-
-        #     sub_domain = self.subdomainPathentry.get()
-        #     scrap_base.init_page_scan('//ul[@class="pagination"]/li/a/@href', sub_domain)
-
-        # except NameError:
-        #     print ("This variable is not defined")
-        # else:
-        #     print ("It is defined and has a value")
-
-
-        # Get base url value
-        # print()
-        # print(self.subdomainPathentry.get())
-
-
-        # scanSite = Scrapper("https://jobs.sanctuary-group.co.uk")
-        # scanSite.init_page_scan('//ul[@class="pagination"]/li/a/@href', '/search')
-        # # print(scanSite.get_pagination_list())
-
-        # queryExpression = ['//table[@id="searchresults"]/tbody/tr', './td/span/a/text() | ./td/span/a/@href | ./td[@headers="hdrDepartment"]/span/text() | ./td/div/span/a/text() | ./td/div/span/span/text()']
-        # scanSite.get_web_content('temp.txt', 'cleanTemp.txt', queryExpression, '/search/')
-
-        # scanSite.get_url_list('cleanTemp.txt', 0)
-
-        # queryExpressionTwo = ['//div[@id="innershell"]/div/div/div[@class="jobDisplayShell"]/div/div/div[@class="job"]', './div/div/div/div/h1/span[@itemprop="title"]/text() | ./div/div/div/div/span[@itemprop="jobLocation"]/p/span/text()']
-        # scanSite.get_web_content('scrap.txt', 'cleanScrap.txt', queryExpressionTwo)
-        # # scanSite.get_site_robot_txt()
-
-        # for i in self.storeFormInputs.items():
-        #     print(i.getFormUrl())
-        #     print(i.getFormFilePath())
-        #     print(i.getFormRow())
-        #     print(i.getFormColumn())
-
-        # Get values from instances
-        # print(self.storeFormInputs[0].getFormUrl())
-        # print(self.storeFormInputs[0].getFormFilePath())
-        # print(self.storeFormInputs[0].getFormRow())
-        # print(self.storeFormInputs[0].getFormColumn())
-
-        # print(self.storeFormInputs[1].getFormUrl())
-        # print(self.storeFormInputs[1].getFormFilePath())
-        # print(self.storeFormInputs[1].getFormRow())
-        # print(self.storeFormInputs[1].getFormColumn())
+            scrapObj = scrapper_factory.create_scrapper(key, scrapper, self)
+            scrapObj.web_content()
+            self.storeChildValue.update(scrapObj.get_result())
 
 root = tk.Tk()
 root.geometry("1300x800")

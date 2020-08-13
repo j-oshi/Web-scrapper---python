@@ -1,75 +1,45 @@
-from scrapper import Scrapper
-import urllib.request
-from lxml import html
-
-import sys
-sys.path.append('D:/python-project/Web-scrapper---python/helpers/')
-
-from helper import getChildXpath, ordered_set
-class MultiPage(Scrapper):
+from page_scrapper import PageScrapper
+class MultiPage(PageScrapper):
     instances = []
-    def __init__(self, name, scrapperData):
-        self.name = name
-        self.url = scrapperData.get('url')
-        self.subDomain= scrapperData.get('subUrl')
-        self.fileName = scrapperData.get('file')
-        self.primaryExpression = scrapperData.get('row_search')
-        self.secondaryExpression = scrapperData.get('column_search')
-
-        self.storedResult = {}
+    def __init__(self, name, scrapperData, parent):
+        super().__init__(name, scrapperData)
         self.__class__.instances.append(self)
+        self.parent = parent
+        self.storeValue = {}
 
-    def url_address(self): 
-        return self.url + self.subDomain
+    def get_name(self):
+        return self.name
 
-    def header(self): 
-        headers = {}
-        headers['User-Agent'] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101 Firefox/78.0"
-        return headers
+    def __filename(self):
+        return super()._filename()
 
-    def get_web_content(self):
-        try:
-            url = self.url_address()
-            headers = self.header()
+    def web_content(self):
+        connectTo = super()._connectTo()
+        objName = self.get_name()
+        if connectTo:
+            urlList = self.parent.storeChildValue.get(connectTo)
+            a_list = []
+            for item in urlList:
+                url = super()._url_address() + item
+                scrap_data = super().get_web_content(url)
+                a_list.append(scrap_data)
 
-            req = urllib.request.Request(url, headers=headers)
-            resp = urllib.request.urlopen(req)
-            tree = html.fromstring(resp.read())
+            self.storeValue[objName] = a_list
+        else:
+            url = super()._url_address()
+            scrap_data = super().get_web_content(url)
 
-            primaryXpath = self.primaryExpression.strip()
-            primaryData = tree.xpath(primaryXpath)
-            
-            secondaryXpath = self.secondaryExpression.strip().splitlines()
+            self.storeValue[objName] = scrap_data  
 
-            resultList = [] 
-            mmap = {}
-  
-            for item in primaryData:
-                if not secondaryXpath: 
-                    if item not in mmap:
-                        mmap[item] = 1
-                        resultList .append(item)
-                else:
-                    xpathResult = getChildXpath(item, secondaryXpath)
-                    resultList.append(xpathResult)                   
-            unique_data = resultList if not secondaryXpath else list(ordered_set(tuple(x) for x in resultList))
-            print(unique_data)
+        # save to fie
+        if self._filename():
+            super().save_to_file(self._filename(), self.storeValue)
+        else:
+            file_name = self.get_name().replace(' ', '_') + '.txt'
+            super().save_to_file(file_name, self.storeValue)
 
-            # save to fie
-            if self.fileName:
-                self.save_to_file(self.fileName, unique_data)
-            else:
-                file_name = self.name.replace(' ', '_') + '.txt'
-                self.save_to_file(file_name, unique_data)
-
-        except Exception as e:
-            print(str(e)) 
-
-    def save_to_file(self, filename, data):
-        saveFile = open(filename, "w")
-        saveFile.write(str(data))
-        saveFile.write('\n')
-        saveFile.close() 
+    def get_result(self):
+       return {'Scrapper 2': self.parent.storeChildValue}
 
     @classmethod
     def printIntances(cls):

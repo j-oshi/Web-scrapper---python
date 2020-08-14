@@ -88,20 +88,20 @@
 #      # pretty_print ensures that it is nicely formatted.
 #      print(etree.tostring(elem, pretty_print=True))
 
-from lxml import html
-import urllib.request
+# from lxml import html
+# import urllib.request
 
-def ordered_set(alist):
-    # Creates an ordered set of unique items
-    mmap = {}  # implements hashed lookup
-    oset = []  # storage for set
+# def ordered_set(alist):
+#     # Creates an ordered set of unique items
+#     mmap = {}  # implements hashed lookup
+#     oset = []  # storage for set
 
-    for item in alist:
-    # Save unique items in input order
-        if item not in mmap:
-            mmap[item] = 1
-            oset.append(item)
-    return oset
+#     for item in alist:
+#     # Save unique items in input order
+#         if item not in mmap:
+#             mmap[item] = 1
+#             oset.append(item)
+#     return oset
 
 
 
@@ -133,39 +133,39 @@ def ordered_set(alist):
 #         oset.append(i)
 # print(oset)
 
-def getChildXpath(xpathObj, listObj):
-    x = []
-    for i in listObj:
-        x.append(xpathObj.xpath(i))
-    all_lists = sum(x, [])
-    return all_lists
+# def getChildXpath(xpathObj, listObj):
+#     x = []
+#     for i in listObj:
+#         x.append(xpathObj.xpath(i))
+#     all_lists = sum(x, [])
+#     return all_lists
 
 
-headers = {}
-headers['User-Agent'] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101 Firefox/78.0"
+# headers = {}
+# headers['User-Agent'] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101 Firefox/78.0"
 
-url='https://jobs.sanctuary-group.co.uk/search'
-# url='https://en.wikipedia.org/wiki/Web_scraping'
-req = urllib.request.Request(url, headers=headers)
-resp = urllib.request.urlopen(req)
+# url='https://jobs.sanctuary-group.co.uk/search'
+# # url='https://en.wikipedia.org/wiki/Web_scraping'
+# req = urllib.request.Request(url, headers=headers)
+# resp = urllib.request.urlopen(req)
 
-tree = html.fromstring(resp.read())
-expressText = '//ul[@class="pagination"]/li'
-expressionConcat = expressText.strip().replace("\n", " | ") 
+# tree = html.fromstring(resp.read())
+# expressText = '//ul[@class="pagination"]/li'
+# expressionConcat = expressText.strip().replace("\n", " | ") 
 
-expressTextTwo = './a/@href\n./a/@href'
+# expressTextTwo = './a/@href\n./a/@href'
 
-data = tree.xpath(expressionConcat)
-testSplit = expressTextTwo.strip().splitlines()
+# data = tree.xpath(expressionConcat)
+# testSplit = expressTextTwo.strip().splitlines()
 
-testListTest = []
+# testListTest = []
 
-for i in data:
-    y = getChildXpath(i, testSplit)
-    testListTest.append(y)
+# for i in data:
+#     y = getChildXpath(i, testSplit)
+#     testListTest.append(y)
 
-unique_data = list(ordered_set(tuple(x) for x in testListTest))
-print(unique_data)
+# unique_data = list(ordered_set(tuple(x) for x in testListTest))
+# print(unique_data)
 # print(testSplit)
 
 
@@ -177,6 +177,29 @@ print(unique_data)
 # print(len(data))
 # uniqueData = set()
 # for i in range(len(data)):
+# import json 
+
+import json
+import ast
+
+f = open('../view/Scrapper_2.txt', "r")
+file = f.read()
+te = bytes(file, 'utf8')
+
+getDict = json.loads(te.decode("utf-8").replace("'",'"'))
+data = getDict.get('Scrapper 2')
+# print(data)
+if any( isinstance(e, list) for e in data ):
+    flat_list = [item for sublist in data for item in sublist]
+else:
+    print(False)
+for item in flat_list:
+    url = 'https://jobs.sanctuary-group.co.uk' + item
+    print(url)
+
+# from pickle import dumps, loads
+# rev = loads(open('../view/Scrapper_2.txt').read())
+# print(rev)
 
 
 

@@ -4,7 +4,7 @@ class SinglePage(PageScrapper):
     def __init__(self, name, scrapperData):
         super().__init__(name, scrapperData)
         self.__class__.instances.append(self)
-        self.storeValue = {}
+        self.storeInstanceValue = {}
     
     def get_name(self):
         return self.name
@@ -17,17 +17,17 @@ class SinglePage(PageScrapper):
         scrap_data = super().get_web_content(url)
 
         objName = self.get_name()
-        self.storeValue[objName] = scrap_data
+        self.storeInstanceValue[objName] = scrap_data
 
         # save to fie
         if self._filename():
-            super().save_to_file(self._filename(), scrap_data)
+            super().save_to_file(self._filename(), self.storeInstanceValue)
         else:
             file_name = self.get_name().replace(' ', '_') + '.txt'
-            super().save_to_file(file_name, scrap_data)
+            super().save_to_file(file_name, self.storeInstanceValue)
 
     def get_result(self):
-        return self.storeValue
+        return self.storeInstanceValue
 
     @classmethod
     def printIntances(cls):

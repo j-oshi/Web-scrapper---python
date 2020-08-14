@@ -191,19 +191,3 @@ class SearchWidget:
         else: 
             self.frameFive.pack_forget() 
             self.formName.configure(background='yellow')
-
-    def loadToselect(self):
-        # self.parent.storeValue
-        print('This is a test')
-
-    # def getFormFilePath(self):
-    #     filepath = self.filepath.get()
-    #     return filepath
-
-    # def getFormRow(self):
-    #     row = self.row.get()
-    #     return row
-
-    # def getFormColumn(self):
-    #     column = self.column.get("1.0", tk.END)
-    #     return column

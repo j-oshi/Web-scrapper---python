@@ -30,7 +30,6 @@ class PageScrapper(Scrapper):
 
     def get_web_content(self, url):
         try:
-
             headers = self._header()
 
             req = urllib.request.Request(url, headers=headers)
@@ -60,7 +59,8 @@ class PageScrapper(Scrapper):
             print(str(e)) 
 
     def save_to_file(self, filename, data):
-        saveFile = open(filename, "w")
+        fileLocation = '../data/'
+        saveFile = open(fileLocation + filename, "w")
         saveFile.write(str(data))
         saveFile.write('\n')
         saveFile.close() 

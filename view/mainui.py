@@ -5,6 +5,7 @@ import tkinter as tk
 import tkinter.ttk as ttk
 from searchWidget import SearchWidget
 from scrapperFactory import ScrapperFactory
+
 class MainUi(ttk.Frame):
     def __init__(self, master=None):
         super().__init__(master)
@@ -87,7 +88,6 @@ class MainUi(ttk.Frame):
     def runProcess(self):
         scrappers = self.storeValue
         for key, scrapper in scrappers.items():
-            print(scrapper)
             scrapper_factory = ScrapperFactory()
             scrapObj = scrapper_factory.create_scrapper(key, scrapper, self)
             scrapObj.web_content()

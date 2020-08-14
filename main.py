@@ -119,55 +119,6 @@ class Application(tk.Frame):
                 grids.append([i, j])
         return grids
 
-
-        #         grid.append([])
-        #         grid[-1].append(0)
-        # rows += 1
-        # print(grid)
-
-        # scrap_searches = []
-        # if self.numberOfForms < 2:
-        #     formNum = self.numberOfForms
-        #     print(self.numberOfForms)
-        #     scrap_searches.append(self.addsearchForm(formNum))
-        #     self.numberOfForms = formNum + 1
-        #     self.mainframe = scrap_searches
-        # entries = []
-        # for field in 'base url', 'search url':
-        #     entries.append(LabelEntry(frame, field, button))
-
-        # self.quit = tk.Button(self, text="QUIT", fg="red",
-        #                       command=self.master.destroy)
-        # self.quit.pack(side="bottom")
-
-    # Create instances of searchform and save
-    # def addsearchForm(self, formNumber, gridPos):
-    #     searchR = SearchForm(self.submainframe, gridPos)
-    #     searchR.showForm()
-    #     self.storeFormInputs.append(searchR)
-
-    # def runScrapper(self):
-    #     # Get base url value
-    #     print(self.baseurlentry.get())
-    #     print(self.subdomainPathentry.get())
-
-    #     # for i in self.storeFormInputs.items():
-    #     #     print(i.getFormUrl())
-    #     #     print(i.getFormFilePath())
-    #     #     print(i.getFormRow())
-    #     #     print(i.getFormColumn())
-
-    #     # Get values from instances
-    #     print(self.storeFormInputs[0].getFormUrl())
-    #     print(self.storeFormInputs[0].getFormFilePath())
-    #     print(self.storeFormInputs[0].getFormRow())
-    #     print(self.storeFormInputs[0].getFormColumn())
-
-    #     print(self.storeFormInputs[1].getFormUrl())
-    #     print(self.storeFormInputs[1].getFormFilePath())
-    #     print(self.storeFormInputs[1].getFormRow())
-    #     print(self.storeFormInputs[1].getFormColumn())
-
 root = tk.Tk()
 app = Application(master=root)
 app.mainloop()

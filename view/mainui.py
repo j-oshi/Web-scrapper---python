@@ -21,6 +21,7 @@ class MainUi(ttk.Frame):
         self.__add_widgets_content()
         self.__submit()
         self.__hide_submit()
+        self.__display_result()
 
     def __createStyle(self):
         self.s = ttk.Style()
@@ -84,6 +85,10 @@ class MainUi(ttk.Frame):
         self.submitButton['text'] = 'Run scrapper'
         self.submitButton["command"] = self.runProcess
         self.submitButton.pack()
+    
+    def __display_result(self):
+        self.displayLabel = tk.Label(master=self.frame, text='', anchor='w', bg='#ffffff', font=(None, 12), padx=10, pady=10)
+        self.displayLabel.pack(fill=tk.X)
 
     def runProcess(self):
         scrappers = self.storeValue
@@ -92,8 +97,10 @@ class MainUi(ttk.Frame):
             scrapObj = scrapper_factory.create_scrapper(key, scrapper, self)
             scrapObj.web_content()
             self.storeChildValue.update(scrapObj.get_result())
+            # self.displayLabel.destroy()
+            # self.displayLabel.config(text="Internet is online")
 
 root = tk.Tk()
-root.geometry("1240x800")
+root.geometry("1240x740")
 app = MainUi(master=root)
 app.mainloop()

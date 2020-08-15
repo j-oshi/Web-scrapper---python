@@ -13,6 +13,7 @@ class PageScrapper(Scrapper):
         self.secondaryExpression = scrapperData.get('column_search')
 
         self.storedResult = {}
+        self.storeFileName = ""
     
     def _filename(self): 
         return self.fileName
@@ -64,6 +65,10 @@ class PageScrapper(Scrapper):
         saveFile.write(str(data))
         saveFile.write('\n')
         saveFile.close() 
+        self.storeFileName = filename
+
+    def get_save_file(self):
+        return self.storeFileName
 
     def getChildXpath(self, xpathObj, listObj):
         x = []

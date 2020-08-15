@@ -94,6 +94,6 @@ class MainUi(ttk.Frame):
             self.storeChildValue.update(scrapObj.get_result())
 
 root = tk.Tk()
-root.geometry("1300x800")
+root.geometry("1240x800")
 app = MainUi(master=root)
 app.mainloop()

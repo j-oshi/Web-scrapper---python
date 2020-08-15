@@ -20,6 +20,7 @@ class MultiPage(PageScrapper):
         self.storeInstanceValue.clear()
         if connectTo:
             urlList = self.parent.storeChildValue.get(connectTo)
+            # Check if list of list 
             if any( isinstance(e, list) for e in urlList ):
                 flat_list = [item for sublist in urlList for item in sublist]
             else:

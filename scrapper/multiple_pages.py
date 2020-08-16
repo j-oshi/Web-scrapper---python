@@ -1,4 +1,4 @@
-from page_scrapper import PageScrapper
+from .page_scrapper import PageScrapper
 
 class MultiPage(PageScrapper):
     instances = []
@@ -48,6 +48,9 @@ class MultiPage(PageScrapper):
 
     def get_result(self):
        return self.storeInstanceValue
+
+    def get_save_file(self):
+        return super().get_save_file()
 
     @classmethod
     def printIntances(cls):

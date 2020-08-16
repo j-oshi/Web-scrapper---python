@@ -1,4 +1,4 @@
-from page_scrapper import PageScrapper
+from .page_scrapper import PageScrapper
 class SinglePage(PageScrapper): 
     instances = []
     def __init__(self, name, scrapperData):
@@ -28,6 +28,9 @@ class SinglePage(PageScrapper):
 
     def get_result(self):
         return self.storeInstanceValue
+
+    def get_save_file(self):
+        return super().get_save_file()
 
     @classmethod
     def printIntances(cls):

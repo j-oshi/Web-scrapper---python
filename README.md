@@ -2,11 +2,12 @@
 Simple web scrapper using xpath expressions.
 Repository includes executable file (webscrapper.exe)
 
-## Clone repositiory and run
+## How to run application
+### Clone repositiory and run
 Clone repository..
 In terminal, run with python <foldername>
   
-## Run executable
+### Run executable
 Click on webscrapper.exe to run.
 
 ## How to use

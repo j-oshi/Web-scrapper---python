@@ -11,6 +11,7 @@ class PageScrapper(Scrapper):
         self.connectTo = scrapperData.get('connectTo')
         self.primaryExpression = scrapperData.get('row_search')
         self.secondaryExpression = scrapperData.get('column_search')
+        self.column_select = scrapperData.get('column_select')
 
         self.storedResult = {}
         self.storeFileName = ""
@@ -23,6 +24,9 @@ class PageScrapper(Scrapper):
 
     def _connectTo(self): 
         return self.connectTo
+    
+    def _column_select(self):
+        return self.column_select
 
     def _header(self): 
         headers = {}
@@ -66,6 +70,10 @@ class PageScrapper(Scrapper):
         saveFile.write('\n')
         saveFile.close() 
         self.storeFileName = filename
+
+    def extract_from_list_colletion(self, columnPosition, listCollectiion):
+        extactedList = [item[columnPosition] for item in listCollectiion]
+        return extactedList
 
     def get_save_file(self):
         return self.storeFileName + ' has been created.\n'

@@ -16,15 +16,20 @@ class MultiPage(PageScrapper):
 
     def web_content(self):
         connectTo = super()._connectTo()
+        columnSelectExist = super()._column_select
         objName = self.get_name()
         self.storeInstanceValue.clear()
         if connectTo:
-            urlList = self.parent.storeChildValue.get(connectTo)
+            extractedList = self.parent.storeChildValue.get(connectTo)
+
             # Check if list of list 
-            if any( isinstance(e, list) for e in urlList ):
-                flat_list = [item for sublist in urlList for item in sublist]
+            if any( isinstance(e, list) for e in extractedList ):
+                if columnSelectExist:
+                    flat_list = super().extract_from_list_colletion(columnSelectExist, extractedList)
+                else:
+                    flat_list = [item for sublist in extractedList for item in sublist]
             else:
-                flat_list = urlList
+                flat_list = extractedList
 
             a_list = []
             for item in flat_list:

@@ -93,16 +93,25 @@ class SearchWidget:
         self.frameFive = tk.Frame(master=self.frameInner, bg='#2b2d2f')
         self.frameFive.pack(fill=tk.X)
 
-        self.connectLabel = tk.Label(self.frameFive, font=(None, 10), text="Connect to: ", bg='#2b2d2f', fg='#C0C0C0', width=15, pady=5)
+        self.connectLabel = tk.Label(master=self.frameFive, font=(None, 10), text="Connect to: ", bg='#2b2d2f', fg='#C0C0C0', width=15, pady=5)
         self.connectLabel.grid(column=0, row=0)
 
         n = tk.StringVar()
-        self.connectSelect = ttk.Combobox(self.frameFive, width=37, textvariable=n)
+        self.connectSelect = ttk.Combobox(master=self.frameFive, width=37, textvariable=n)
         # self.connectSelect["command"] = self.loadToselect
         for i in self.parent.storeValue:
             self.connectSelect['values'] = (i, )
         self.connectSelect.grid(column=1, row=0)
         self.connectSelect.current()
+
+        self.frameFivetwo = tk.Frame(master=self.frameInner, bg='#2b2d2f')
+        self.frameFivetwo.pack(fill=tk.X)
+
+        # self.columnSelectLabel = tk.Label(master=self.frameFivetwo, font=(None, 10), text="List column: ", bg='#2b2d2f', fg='#C0C0C0', width=15, pady=5)
+        # self.columnSelectLabel.pack(side="left")
+
+        self.columnSelect = tk.Entry(master=self.frameFivetwo, width=10)
+        self.columnSelect.pack(side="left", expand=1)
 
     def __widget_row_search(self):
         self.frameSix = tk.Frame(master=self.formName, bg='#2b2d2f')
@@ -143,6 +152,7 @@ class SearchWidget:
 
     def __hide_connect_to(self):
         self.frameFive.pack_forget()
+        self.frameFivetwo.pack_forget()
 
     def __hide_process(self):
         self.subSubmitButton.pack_forget() 
@@ -157,9 +167,10 @@ class SearchWidget:
         subUrl = self.suburl.get()
         file = self.output.get()
         connectTo =  self.connectSelect.get() if scrapper_type == ' Multiple' else ''
+        column_select = self.columnSelect.get()
         row_search = self.nodeSearch.get()
         column_search = self.fieldSearch.get("1.0", tk.END)
-        dict[key] = {'type': scrapper_type, 'url': url, 'subUrl': subUrl, 'file': file, 'connectTo': connectTo, 'row_search': row_search, 'column_search': column_search}
+        dict[key] = {'type': scrapper_type, 'url': url, 'subUrl': subUrl, 'file': file, 'connectTo': connectTo, 'column_select': column_select, 'row_search': row_search, 'column_search': column_search}
         self.formName.configure(background='green')
         self.parent.storeValue.update(dict)
         self.rsubSubmitButton.pack()
@@ -188,6 +199,8 @@ class SearchWidget:
         if switchOutput == 'multiple':
             self.frameFive.pack() 
             self.formName.configure(background='orange')
+            self.frameFivetwo.pack()
         else: 
             self.frameFive.pack_forget() 
             self.formName.configure(background='yellow')
+            self.frameFivetwo.forget()

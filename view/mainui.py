@@ -1,11 +1,8 @@
-import sys
-sys.path.append('D:/python-project/Web-scrapper---python/scrapper/')
-
 import tkinter as tk
 import tkinter.ttk as ttk
-from searchWidget import SearchWidget
-from scrapperFactory import ScrapperFactory
 
+from .searchWidget import SearchWidget
+from scrapper.scrapperFactory import ScrapperFactory
 class MainUi(ttk.Frame):
     def __init__(self, master=None):
         super().__init__(master)
@@ -21,6 +18,7 @@ class MainUi(ttk.Frame):
         self.__add_widgets_content()
         self.__submit()
         self.__hide_submit()
+        self.__display_result()
 
     def __createStyle(self):
         self.s = ttk.Style()
@@ -84,16 +82,29 @@ class MainUi(ttk.Frame):
         self.submitButton['text'] = 'Run scrapper'
         self.submitButton["command"] = self.runProcess
         self.submitButton.pack()
+    
+    def __display_result(self):
+        self.displayframe = tk.Frame(master=self.frame, bg='#2b2d2f', padx=20, pady=10)
+        self.displayframe.pack(fill=tk.X)
+
+        self.displayLabel = tk.Label(master=self.displayframe, text='Displays files created.', anchor='w', bg='#ffffff', font=(None, 12), padx=10, pady=10)
+        self.displayLabel.pack(fill=tk.X)
 
     def runProcess(self):
         scrappers = self.storeValue
+        displayList = list()
+        self.displayLabel.config(text="Please wait\n. Still porcessing ...")
         for key, scrapper in scrappers.items():
             scrapper_factory = ScrapperFactory()
             scrapObj = scrapper_factory.create_scrapper(key, scrapper, self)
             scrapObj.web_content()
+            display = scrapObj.get_save_file()
+            displayList.append(display)
+            s=(" ".join(displayList))
             self.storeChildValue.update(scrapObj.get_result())
+            self.displayLabel.config(text=s)
 
 root = tk.Tk()
-root.geometry("1240x800")
+root.geometry("1260x750")
 app = MainUi(master=root)
 app.mainloop()

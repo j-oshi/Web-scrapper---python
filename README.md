@@ -13,10 +13,11 @@ Click on webscrapper.exe to run.
 ## How to use
 - Click on 'add scrapper' button to generate scrapping form.
 - Select type and fill the form.
+- Enter xpath expression of element in dom to scrap.
 - Click the 'add to process' button to activate form and display 'run scrapper' button.
 - Click the 'run scrapper' button to execute the process and generate scrap data file.
 
 ## Limits
-Allowed maximum number of three forms.
-Up to three seperate scrapping processes can be run in series.
-Processes can be chained to scrap child of child pages.
+A maximum of three scrap forms are allowed. Each form in the process can scrap a different page in series by using the single type.
+The forms can also be chained linked to perform three level scrapping (i.e., scrap child of child pages). Made possible by using a single form with multipages.
+single -> multi -> multi

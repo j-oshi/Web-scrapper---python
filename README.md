@@ -13,7 +13,7 @@ Click on webscrapper.exe to run.
 ## How to use
 - Click on 'add scrapper' button to generate scrapping form.
 - Select type and fill the form.
-- Enter xpath expression of element in dom to scrap.
+- Enter the xpath expression of element in dom to scrap.
 - Click the 'add to process' button to activate form and display 'run scrapper' button.
 - Click the 'run scrapper' button to execute the process and generate scrap data file.
 

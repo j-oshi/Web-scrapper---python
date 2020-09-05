@@ -18,6 +18,7 @@ Click on webscrapper.exe to run.
 - Click the 'run scrapper' button to execute the process and generate scrap data file.
 
 ## Limits
-A maximum of three scrap forms are allowed. Each form in the process can scrap a different page in series by using the single type.
-The forms can also be chained linked to perform three level scrapping (i.e., scrap child of child pages). Made possible by using a single form with multipages.
+A maximum of three scrap forms are allowed. Each form in the process can scrap a different page in series by using the single type.<br>
+single . single . single <br >
+The forms can also be chained linked to perform three level scrapping (i.e., scrap child of child pages). Made possible by using a single form with multipages.<br >
 single -> multi -> multi

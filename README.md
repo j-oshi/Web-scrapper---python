@@ -22,8 +22,11 @@ Click on webscrapper.exe to launch form.
 
 ## Limits
 A maximum of three scrap forms are allowed. Each form in the process can scrap a different page in series by using the single scrap form.<br>
+
 single . single . single <br >
+
 The forms can also be chained linked to perform three level scrapping (i.e., scrap child of child pages). Made possible by pairing a single scrap form with multi scrap form.<br >
 
 ** Multi page has a 'connect to' field to select previous scrapper to link to. <br >
+
 single -> multi -> multi
